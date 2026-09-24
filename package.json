@@ -1,0 +1,12 @@
+{
+  "name": "foodexpress",
+  "version": "1.0.0",
+  "description": "Simple food delivery app for Docker practice",
+  "main": "server.js",
+  "scripts": {
+    "start": "node server.js"
+  },
+  "dependencies": {
+    "express": "^4.19.2"
+  }
+}
