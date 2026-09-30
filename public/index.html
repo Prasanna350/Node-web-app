@@ -3,63 +3,76 @@
 <head>
 <meta charset="UTF-8">
 <meta name="viewport" content="width=device-width, initial-scale=1">
-<title>Bloom & Petal · Fresh Flowers Delivered</title>
+<title>ToyBox · Playful Toys for Little Dreamers</title>
 <link rel="preconnect" href="https://fonts.googleapis.com">
 <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-<link href="https://fonts.googleapis.com/css2?family=Quicksand:wght@400;500;600;700&family=Caveat:wght@600;700&family=Fredoka:wght@500;600;700&display=swap" rel="stylesheet">
+<link href="https://fonts.googleapis.com/css2?family=Baloo+2:wght@400;500;600;700;800&family=Nunito:wght@400;600;700;800&family=Patrick+Hand&display=swap" rel="stylesheet">
 <style>
     :root {
-        --bg:        #fff5f8;
-        --bg-soft:   #fffafc;
-        --surface:   #ffffff;
-        --surface-2: #ffeaf2;
-        --border:    #ffd6e4;
-        --text:      #4a2c3a;
-        --text-dim:  #a87a91;
-        --brand:     #ff8fb1;
-        --brand-2:   #ffd66b;
-        --accent:    #c98fff;
-        --mint:      #a8e6cf;
-        --danger:    #ff6b8a;
-        --radius:    20px;
-        --radius-sm: 12px;
-        --shadow:    0 20px 40px -14px rgba(255,143,177,.35);
-        --shadow-soft: 0 8px 20px -8px rgba(255,143,177,.25);
+        /* Bright, primary, playful palette — totally different from pastel flower shop */
+        --blue:   #3b82f6;
+        --red:    #ef4444;
+        --yellow: #fbbf24;
+        --green:  #22c55e;
+        --purple: #a855f7;
+        --orange: #f97316;
+        --pink:   #ec4899;
+
+        --bg:     #fef9e7;
+        --bg-alt: #fff8d6;
+        --ink:    #1e293b;
+        --ink-soft: #64748b;
+        --surface: #ffffff;
+        --line:   #1e293b;
+
+        --radius: 18px;
+        --shadow-hard: 6px 6px 0 #1e293b;
+        --shadow-hard-sm: 4px 4px 0 #1e293b;
+        --shadow-soft: 0 12px 24px -10px rgba(30,41,59,.25);
     }
 
     * { box-sizing: border-box; margin: 0; padding: 0; }
     html { scroll-behavior: smooth; }
 
     body {
-        font-family: 'Quicksand', system-ui, sans-serif;
+        font-family: 'Nunito', sans-serif;
         background: var(--bg);
-        color: var(--text);
+        color: var(--ink);
         min-height: 100vh;
         overflow-x: hidden;
-        line-height: 1.55;
+        line-height: 1.6;
         -webkit-font-smoothing: antialiased;
+        background-image:
+            radial-gradient(circle at 10% 5%, rgba(251,191,36,.25) 0, transparent 18%),
+            radial-gradient(circle at 90% 8%, rgba(59,130,246,.18) 0, transparent 20%),
+            radial-gradient(circle at 80% 95%, rgba(239,68,68,.18) 0, transparent 22%),
+            radial-gradient(circle at 15% 90%, rgba(34,197,94,.18) 0, transparent 20%);
     }
 
+    /* Fun confetti dots background */
     body::before {
         content: "";
         position: fixed;
         inset: 0;
-        background:
-            radial-gradient(900px 550px at 5% -10%, rgba(255,143,177,.28), transparent 60%),
-            radial-gradient(800px 500px at 100% 5%, rgba(201,143,255,.22), transparent 60%),
-            radial-gradient(700px 500px at 50% 110%, rgba(168,230,207,.25), transparent 60%);
+        background-image:
+            radial-gradient(circle, var(--yellow) 1.5px, transparent 1.6px),
+            radial-gradient(circle, var(--red) 1.5px, transparent 1.6px),
+            radial-gradient(circle, var(--blue) 1.5px, transparent 1.6px),
+            radial-gradient(circle, var(--green) 1.5px, transparent 1.6px);
+        background-size: 120px 120px, 140px 140px, 160px 160px, 180px 180px;
+        background-position: 0 0, 40px 60px, 80px 20px, 20px 100px;
+        opacity: .12;
         pointer-events: none;
         z-index: 0;
     }
 
-    /* Header */
+    /* ================= HEADER ================= */
     header {
         position: sticky;
         top: 0;
-        z-index: 50;
-        backdrop-filter: blur(14px);
-        background: rgba(255,245,248,.85);
-        border-bottom: 2px dashed var(--border);
+        z-index: 100;
+        background: #ffffff;
+        border-bottom: 3px solid var(--line);
     }
     .header-inner {
         max-width: 1280px;
@@ -69,76 +82,100 @@
         align-items: center;
         justify-content: space-between;
         gap: 1rem;
+        flex-wrap: wrap;
     }
+
     .logo {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 1.65rem;
-        font-weight: 700;
-        letter-spacing: .01em;
-        background: linear-gradient(90deg, var(--brand), var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.9rem;
+        font-weight: 800;
+        color: var(--ink);
         cursor: pointer;
         display: flex;
         align-items: center;
-        gap: .5rem;
-        transition: transform .2s;
+        gap: .55rem;
+        letter-spacing: -.02em;
+        transition: transform .15s;
     }
-    .logo:hover { transform: rotate(-2deg) scale(1.03); }
-    .logo span:last-child { font-size: 1.4rem; }
+    .logo:hover { transform: rotate(-3deg) scale(1.05); }
 
-    nav { display: flex; gap: .5rem; align-items: center; }
+    .logo-badge {
+        display: inline-flex;
+        align-items: center;
+        justify-content: center;
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        background: var(--yellow);
+        border: 3px solid var(--ink);
+        box-shadow: var(--shadow-hard-sm);
+        font-size: 1.4rem;
+        transform: rotate(-6deg);
+    }
+
+    .logo-text span:nth-child(1) { color: var(--red); }
+    .logo-text span:nth-child(2) { color: var(--blue); }
+    .logo-text span:nth-child(3) { color: var(--green); }
+    .logo-text span:nth-child(4) { color: var(--orange); }
+
+    nav { display: flex; gap: .6rem; align-items: center; flex-wrap: wrap; }
+
     .nav-btn {
-        background: var(--surface);
-        border: 2px solid var(--border);
-        color: var(--text-dim);
-        padding: .5rem 1.1rem;
-        border-radius: 999px;
-        font-size: .875rem;
-        font-weight: 600;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: .85rem;
+        padding: .6rem 1.15rem;
+        border-radius: 12px;
+        border: 3px solid var(--ink);
+        background: #fff;
+        color: var(--ink);
         cursor: pointer;
-        transition: all .2s;
-        font-family: inherit;
+        box-shadow: 3px 3px 0 var(--ink);
+        transition: all .15s;
         position: relative;
+        letter-spacing: .02em;
+        text-transform: uppercase;
     }
     .nav-btn:hover {
-        color: var(--brand);
-        border-color: var(--brand);
-        transform: translateY(-2px);
-        box-shadow: var(--shadow-soft);
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0 var(--ink);
+        background: var(--yellow);
+    }
+    .nav-btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 var(--ink);
     }
     .nav-btn.active {
-        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        background: var(--blue);
         color: #fff;
-        border-color: transparent;
-        box-shadow: 0 6px 16px -6px rgba(255,143,177,.7);
     }
+    .nav-btn.active:hover { background: var(--blue); }
+
     .cart-badge {
         position: absolute;
-        top: -8px;
-        right: -8px;
-        background: var(--accent);
+        top: -10px;
+        right: -10px;
+        background: var(--red);
         color: #fff;
         font-size: .7rem;
-        font-weight: 700;
-        min-width: 22px;
-        height: 22px;
+        font-weight: 800;
+        min-width: 24px;
+        height: 24px;
         border-radius: 999px;
         display: flex;
         align-items: center;
         justify-content: center;
         padding: 0 6px;
-        border: 2px solid var(--bg);
-        animation: bounceIn .3s ease-out;
+        border: 3px solid var(--ink);
+        animation: popIn .3s cubic-bezier(.3,1.6,.5,1);
     }
-    @keyframes bounceIn {
-        0%   { transform: scale(.3); }
-        60%  { transform: scale(1.2); }
-        100% { transform: scale(1); }
+    @keyframes popIn {
+        0%   { transform: scale(0) rotate(-45deg); }
+        70%  { transform: scale(1.3) rotate(10deg); }
+        100% { transform: scale(1) rotate(0); }
     }
 
-    /* Main */
+    /* ================= MAIN ================= */
     main {
         position: relative;
         z-index: 1;
@@ -147,16 +184,16 @@
         padding: 0 1.5rem 4rem;
     }
 
-    /* ============ HERO SECTION (DETAILS FIRST) ============ */
+    /* ================= HERO ================= */
     .hero {
         display: grid;
-        grid-template-columns: 1.1fr 1fr;
-        gap: 3rem;
+        grid-template-columns: 1.05fr 1fr;
+        gap: 2.5rem;
         align-items: center;
-        padding: 3.5rem 0 3rem;
+        padding: 3rem 0 2.5rem;
     }
     @media (max-width: 900px) {
-        .hero { grid-template-columns: 1fr; text-align: center; padding: 2rem 0; gap: 2rem; }
+        .hero { grid-template-columns: 1fr; text-align: center; gap: 2rem; }
         .hero-actions { justify-content: center; }
         .hero-stats { justify-content: center; }
     }
@@ -165,137 +202,250 @@
         display: inline-flex;
         align-items: center;
         gap: .5rem;
-        background: var(--surface-2);
-        border: 2px dashed var(--border);
-        color: var(--brand);
-        font-size: .78rem;
+        background: var(--yellow);
+        border: 3px solid var(--ink);
+        box-shadow: 3px 3px 0 var(--ink);
+        color: var(--ink);
+        font-family: 'Baloo 2', cursive;
+        font-size: .85rem;
         font-weight: 700;
-        text-transform: uppercase;
-        letter-spacing: .12em;
-        padding: .45rem 1.1rem;
+        padding: .4rem 1rem;
         border-radius: 999px;
         margin-bottom: 1.25rem;
+        letter-spacing: .04em;
+        text-transform: uppercase;
+        animation: wiggle 3s ease-in-out infinite;
     }
+    @keyframes wiggle {
+        0%, 100% { transform: rotate(-2deg); }
+        50%      { transform: rotate(2deg); }
+    }
+
     .hero-title {
-        font-family: 'Fredoka', sans-serif;
-        font-size: clamp(2.4rem, 5vw, 3.8rem);
-        font-weight: 700;
-        line-height: 1.05;
-        letter-spacing: -.02em;
+        font-family: 'Baloo 2', cursive;
+        font-size: clamp(2.6rem, 5.5vw, 4.2rem);
+        font-weight: 800;
+        line-height: 1;
+        letter-spacing: -.03em;
         margin-bottom: 1.25rem;
+        color: var(--ink);
     }
-    .hero-title .accent {
-        background: linear-gradient(90deg, var(--brand), var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+    .hero-title .word1 { color: var(--red); }
+    .hero-title .word2 { color: var(--blue); }
+    .hero-title .word3 { color: var(--green); }
+    .hero-title .word4 { color: var(--orange); }
+
+    .hero-title .underline {
+        position: relative;
+        display: inline-block;
     }
-    .hero-title .handwritten {
-        font-family: 'Caveat', cursive;
-        font-weight: 700;
-        color: var(--brand);
-        font-size: 1.15em;
+    .hero-title .underline::after {
+        content: "";
+        position: absolute;
+        left: 0; right: 0;
+        bottom: 4px;
+        height: 12px;
+        background: var(--yellow);
+        z-index: -1;
+        border-radius: 6px;
+        transform: skewX(-8deg);
     }
+
     .hero-text {
-        font-size: 1.02rem;
-        color: var(--text-dim);
+        font-size: 1.05rem;
+        font-weight: 600;
+        color: var(--ink-soft);
         max-width: 30rem;
         margin-bottom: 2rem;
-        line-height: 1.7;
     }
-    @media (max-width: 900px) {
-        .hero-text { margin-left: auto; margin-right: auto; }
-    }
+    @media (max-width: 900px) { .hero-text { margin-left: auto; margin-right: auto; } }
 
     .hero-actions {
         display: flex;
-        gap: .75rem;
+        gap: .8rem;
         flex-wrap: wrap;
-        margin-bottom: 2.25rem;
+        margin-bottom: 2rem;
+    }
+
+    .btn {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: .9rem;
+        padding: .8rem 1.5rem;
+        border-radius: 14px;
+        border: 3px solid var(--ink);
+        background: #fff;
+        color: var(--ink);
+        cursor: pointer;
+        box-shadow: 4px 4px 0 var(--ink);
+        transition: all .15s;
+        display: inline-flex;
+        align-items: center;
+        gap: .45rem;
+        letter-spacing: .02em;
+        text-transform: uppercase;
+        text-decoration: none;
+    }
+    .btn:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 6px 6px 0 var(--ink);
+    }
+    .btn:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 var(--ink);
+    }
+    .btn-yellow { background: var(--yellow); }
+    .btn-red    { background: var(--red); color: #fff; }
+    .btn-blue   { background: var(--blue); color: #fff; }
+    .btn-green  { background: var(--green); color: #fff; }
+    .btn-purple { background: var(--purple); color: #fff; }
+    .btn.block  { width: 100%; justify-content: center; }
+    .btn.lg     { padding: 1rem 2rem; font-size: 1rem; }
+    .btn:disabled {
+        opacity: .5; cursor: not-allowed;
+        transform: none; box-shadow: 3px 3px 0 var(--ink);
     }
 
     .hero-stats {
         display: flex;
-        gap: 2rem;
+        gap: 1.5rem;
         flex-wrap: wrap;
     }
-    .stat-item { text-align: left; }
-    @media (max-width: 900px) { .stat-item { text-align: center; } }
+    .stat-item {
+        background: #fff;
+        border: 3px solid var(--ink);
+        box-shadow: 4px 4px 0 var(--ink);
+        border-radius: 14px;
+        padding: .7rem 1.1rem;
+        text-align: center;
+        transition: transform .2s;
+    }
+    .stat-item:hover { transform: translateY(-4px) rotate(-2deg); }
     .stat-num {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 1.8rem;
-        font-weight: 700;
-        background: linear-gradient(135deg, var(--brand), var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.5rem;
+        font-weight: 800;
         line-height: 1;
     }
+    .stat-item:nth-child(1) .stat-num { color: var(--red); }
+    .stat-item:nth-child(2) .stat-num { color: var(--blue); }
+    .stat-item:nth-child(3) .stat-num { color: var(--green); }
     .stat-label {
-        font-size: .78rem;
-        color: var(--text-dim);
-        font-weight: 600;
-        margin-top: .3rem;
+        font-size: .72rem;
+        font-weight: 700;
+        color: var(--ink-soft);
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        margin-top: .25rem;
     }
 
-    /* Hero visual */
+    /* Hero visual — playful sticker-style */
     .hero-visual {
         position: relative;
         display: grid;
         grid-template-columns: 1fr 1fr;
-        grid-template-rows: 1fr 1fr;
         gap: 1rem;
         height: 460px;
     }
     @media (max-width: 900px) { .hero-visual { height: 380px; } }
-    @media (max-width: 500px) { .hero-visual { height: 300px; gap: .6rem; } }
+    @media (max-width: 500px) { .hero-visual { height: 320px; gap: .7rem; } }
 
-    .hero-img {
-        border-radius: 28px;
+    .hero-tile {
+        border-radius: 22px;
         overflow: hidden;
-        border: 4px solid #fff;
-        box-shadow: var(--shadow);
+        border: 4px solid var(--ink);
+        box-shadow: var(--shadow-hard);
         position: relative;
-        background: var(--surface-2);
+        background: #fff;
+        transition: transform .3s cubic-bezier(.2,.9,.3,1.3);
     }
-    .hero-img img {
+    .hero-tile:hover { transform: rotate(2deg) scale(1.03); }
+    .hero-tile img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform .6s cubic-bezier(.2,.8,.2,1);
+        display: block;
     }
-    .hero-img:hover img { transform: scale(1.08); }
-    .hero-img:nth-child(1) { grid-row: span 2; border-radius: 28px 28px 28px 80px; }
-    .hero-img:nth-child(2) { border-radius: 28px 80px 28px 28px; }
-    .hero-img:nth-child(3) { border-radius: 28px 28px 80px 28px; }
+    .hero-tile:nth-child(1) { grid-column: span 2; }
+    .hero-tile:nth-child(1):hover { transform: rotate(-2deg) scale(1.02); }
 
-    .hero-float {
+    .hero-sticker {
         position: absolute;
-        background: var(--surface);
-        border: 2px solid var(--border);
+        background: #fff;
+        border: 3px solid var(--ink);
+        box-shadow: var(--shadow-hard-sm);
         border-radius: 999px;
-        padding: .6rem 1.1rem;
-        font-size: .82rem;
+        padding: .5rem 1rem;
+        font-family: 'Baloo 2', cursive;
         font-weight: 700;
-        color: var(--text);
-        box-shadow: var(--shadow);
+        font-size: .85rem;
+        z-index: 5;
         display: flex;
         align-items: center;
-        gap: .5rem;
-        z-index: 5;
-        animation: floaty 4s ease-in-out infinite;
+        gap: .4rem;
+        text-transform: uppercase;
+        letter-spacing: .04em;
     }
-    .hero-float.f1 { top: 8%; left: -18px; }
-    .hero-float.f2 { bottom: 12%; right: -14px; animation-delay: 1.5s; }
+    .hero-sticker.s1 { top: 6%; left: -14px; background: var(--yellow); animation: floaty 3.5s ease-in-out infinite; }
+    .hero-sticker.s2 { bottom: 10%; right: -10px; background: var(--pink); color: #fff; animation: floaty 4s ease-in-out infinite 1s; }
     @keyframes floaty {
-        0%, 100% { transform: translateY(0); }
-        50%      { transform: translateY(-10px); }
+        0%, 100% { transform: translateY(0) rotate(-3deg); }
+        50%      { transform: translateY(-10px) rotate(3deg); }
     }
     @media (max-width: 500px) {
-        .hero-float { font-size: .7rem; padding: .45rem .85rem; }
+        .hero-sticker { font-size: .7rem; padding: .35rem .8rem; }
     }
 
-    /* ============ SECTION HEAD ============ */
+    /* ================= FEATURES STRIP ================= */
+    .features-strip {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+    .feature-card {
+        background: #fff;
+        border: 3px solid var(--ink);
+        box-shadow: var(--shadow-hard-sm);
+        border-radius: 16px;
+        padding: 1.1rem 1.2rem;
+        display: flex;
+        align-items: center;
+        gap: .9rem;
+        transition: transform .2s;
+    }
+    .feature-card:hover { transform: translate(-3px, -3px); box-shadow: 6px 6px 0 var(--ink); }
+    .feature-card:nth-child(1) .feature-icon { background: var(--yellow); }
+    .feature-card:nth-child(2) .feature-icon { background: var(--blue); color: #fff; }
+    .feature-card:nth-child(3) .feature-icon { background: var(--red); color: #fff; }
+    .feature-card:nth-child(4) .feature-icon { background: var(--green); color: #fff; }
+
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 12px;
+        border: 3px solid var(--ink);
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.4rem;
+        flex-shrink: 0;
+    }
+    .feature-title {
+        font-family: 'Baloo 2', cursive;
+        font-size: .98rem;
+        font-weight: 700;
+        color: var(--ink);
+        line-height: 1.2;
+    }
+    .feature-desc {
+        font-size: .78rem;
+        color: var(--ink-soft);
+        font-weight: 600;
+        margin-top: .15rem;
+    }
+
+    /* ================= SECTION HEAD ================= */
     .section-head {
         display: flex;
         align-items: flex-end;
@@ -305,76 +455,38 @@
         gap: 1rem;
     }
     .page-title {
-        font-family: 'Fredoka', sans-serif;
-        font-size: clamp(1.9rem, 3.6vw, 2.5rem);
-        font-weight: 700;
-        letter-spacing: -.01em;
-        line-height: 1.1;
-        color: var(--text);
+        font-family: 'Baloo 2', cursive;
+        font-size: clamp(2rem, 4vw, 2.8rem);
+        font-weight: 800;
+        letter-spacing: -.02em;
+        line-height: 1;
+        color: var(--ink);
     }
     .page-title .accent {
-        background: linear-gradient(90deg, var(--brand), var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        position: relative;
+        display: inline-block;
+    }
+    .page-title .accent::after {
+        content: "";
+        position: absolute;
+        left: 0; right: 0;
+        bottom: 4px;
+        height: 12px;
+        background: var(--yellow);
+        z-index: -1;
+        border-radius: 6px;
+        transform: skewX(-8deg);
     }
     .page-subtitle {
-        color: var(--text-dim);
+        color: var(--ink-soft);
         margin-top: .5rem;
-        font-size: .95rem;
-        font-family: 'Caveat', cursive;
-        font-size: 1.35rem;
+        font-family: 'Patrick Hand', cursive;
+        font-size: 1.25rem;
+        font-weight: 400;
     }
 
-    /* ============ FEATURES STRIP ============ */
-    .features-strip {
-        display: grid;
-        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
-        gap: 1rem;
-        margin-bottom: 3rem;
-    }
-    .feature-card {
-        background: var(--surface);
-        border: 2px solid var(--border);
-        border-radius: var(--radius);
-        padding: 1.35rem 1.25rem;
-        display: flex;
-        align-items: center;
-        gap: 1rem;
-        box-shadow: var(--shadow-soft);
-        transition: transform .25s, border-color .25s;
-    }
-    .feature-card:hover {
-        transform: translateY(-4px);
-        border-color: var(--brand);
-    }
-    .feature-icon {
-        width: 48px;
-        height: 48px;
-        border-radius: 14px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 1.5rem;
-        flex-shrink: 0;
-        background: var(--surface-2);
-        border: 2px solid var(--border);
-    }
-    .feature-title {
-        font-family: 'Fredoka', sans-serif;
-        font-size: .95rem;
-        font-weight: 600;
-        color: var(--text);
-    }
-    .feature-desc {
-        font-size: .78rem;
-        color: var(--text-dim);
-        line-height: 1.4;
-        margin-top: .15rem;
-    }
-
-    /* ============ PRODUCT SECTION ============ */
-    .products-section { padding-top: 1rem; scroll-margin-top: 90px; }
+    /* ================= PRODUCTS ================= */
+    .products-section { padding-top: .5rem; scroll-margin-top: 90px; }
 
     .category-tabs {
         display: flex;
@@ -383,29 +495,30 @@
         margin-bottom: 1.5rem;
     }
     .cat-btn {
-        background: var(--surface);
-        border: 2px solid var(--border);
-        color: var(--text-dim);
-        padding: .45rem 1.1rem;
-        border-radius: 999px;
-        font-size: .82rem;
-        font-weight: 600;
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: .78rem;
+        padding: .5rem 1.1rem;
+        border-radius: 12px;
+        border: 3px solid var(--ink);
+        background: #fff;
+        color: var(--ink);
         cursor: pointer;
-        transition: all .2s;
-        font-family: inherit;
+        transition: all .15s;
+        box-shadow: 3px 3px 0 var(--ink);
+        text-transform: uppercase;
+        letter-spacing: .04em;
     }
     .cat-btn:hover {
-        color: var(--brand);
-        border-color: var(--brand);
-        transform: translateY(-2px);
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0 var(--ink);
+        background: var(--yellow);
     }
     .cat-btn.active {
-        background: linear-gradient(135deg, var(--brand), var(--accent));
+        background: var(--purple);
         color: #fff;
-        border-color: transparent;
-        font-weight: 700;
-        box-shadow: 0 6px 14px -6px rgba(201,143,255,.6);
     }
+    .cat-btn.active:hover { background: var(--purple); }
 
     .shop-layout {
         display: grid;
@@ -421,90 +534,96 @@
     .menu-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
-        gap: 1.25rem;
+        gap: 1.4rem;
     }
+
     .food-card {
-        background: var(--surface);
-        border: 2px solid var(--border);
-        border-radius: var(--radius);
+        background: #fff;
+        border: 3px solid var(--ink);
+        box-shadow: var(--shadow-hard);
+        border-radius: 20px;
         overflow: hidden;
-        transition: transform .3s cubic-bezier(.2,.8,.2,1), box-shadow .3s, border-color .3s;
+        transition: transform .25s cubic-bezier(.2,.9,.3,1.3), box-shadow .25s;
         display: flex;
         flex-direction: column;
-        box-shadow: var(--shadow-soft);
         cursor: pointer;
+        position: relative;
     }
     .food-card:hover {
-        transform: translateY(-8px) rotate(-1deg);
-        border-color: var(--brand);
-        box-shadow: var(--shadow);
+        transform: translate(-4px, -4px) rotate(-1deg);
+        box-shadow: 10px 10px 0 var(--ink);
     }
+    .food-card:nth-child(5n+1) .food-visual { background: #fef3c7; }
+    .food-card:nth-child(5n+2) .food-visual { background: #dbeafe; }
+    .food-card:nth-child(5n+3) .food-visual { background: #fee2e2; }
+    .food-card:nth-child(5n+4) .food-visual { background: #dcfce7; }
+    .food-card:nth-child(5n+5) .food-visual { background: #f3e8ff; }
+
     .food-visual {
-        aspect-ratio: 4 / 3;
+        aspect-ratio: 1 / 1;
         position: relative;
         overflow: hidden;
-        background: var(--surface-2);
+        border-bottom: 3px solid var(--ink);
     }
     .food-visual img {
         width: 100%;
         height: 100%;
         object-fit: cover;
-        transition: transform .5s cubic-bezier(.2,.8,.2,1);
         display: block;
+        transition: transform .5s cubic-bezier(.2,.8,.3,1.2);
     }
-    .food-card:hover .food-visual img { transform: scale(1.12); }
-    .food-visual::after {
-        content: "";
-        position: absolute;
-        inset: 0;
-        background: linear-gradient(to top, rgba(74,44,58,.28), transparent 55%);
-        pointer-events: none;
-    }
+    .food-card:hover .food-visual img { transform: scale(1.12) rotate(3deg); }
 
     .cat-badge {
         position: absolute;
-        top: .75rem;
-        left: .75rem;
-        background: rgba(255,255,255,.92);
-        backdrop-filter: blur(8px);
-        color: var(--text);
-        padding: .3rem .7rem;
-        border-radius: 999px;
-        font-size: .68rem;
-        font-weight: 700;
+        top: .7rem;
+        left: .7rem;
+        background: var(--ink);
+        color: #fff;
+        padding: .3rem .75rem;
+        border-radius: 8px;
+        font-size: .65rem;
+        font-weight: 800;
         letter-spacing: .06em;
-        z-index: 2;
-        border: 2px solid rgba(255,143,177,.3);
         text-transform: uppercase;
+        z-index: 2;
+        border: 2px solid var(--ink);
     }
+    .food-card:nth-child(5n+1) .cat-badge { background: var(--orange); }
+    .food-card:nth-child(5n+2) .cat-badge { background: var(--blue); }
+    .food-card:nth-child(5n+3) .cat-badge { background: var(--red); }
+    .food-card:nth-child(5n+4) .cat-badge { background: var(--green); }
+    .food-card:nth-child(5n+5) .cat-badge { background: var(--purple); }
+
     .quick-tag {
         position: absolute;
-        bottom: .75rem;
-        right: .75rem;
-        background: var(--brand);
-        color: #fff;
+        bottom: .7rem;
+        right: .7rem;
+        background: var(--yellow);
+        color: var(--ink);
         padding: .28rem .7rem;
-        border-radius: 999px;
-        font-size: .66rem;
-        font-weight: 700;
-        z-index: 2;
+        border-radius: 8px;
+        font-size: .62rem;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: .06em;
-        box-shadow: 0 4px 10px -3px rgba(255,143,177,.8);
+        letter-spacing: .04em;
+        z-index: 2;
+        border: 2px solid var(--ink);
     }
 
-    .food-info { padding: 1rem 1.1rem 1.25rem; flex: 1; display: flex; flex-direction: column; }
+    .food-info { padding: 1rem 1.1rem 1.15rem; flex: 1; display: flex; flex-direction: column; }
     .food-info h3 {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 1.1rem;
-        font-weight: 600;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.15rem;
+        font-weight: 700;
         margin-bottom: .3rem;
-        letter-spacing: -.005em;
-        color: var(--text);
+        color: var(--ink);
+        line-height: 1.2;
     }
     .food-desc {
         font-size: .82rem;
-        color: var(--text-dim);
+        color: var(--ink-soft);
+        font-weight: 600;
         margin-bottom: 1rem;
         flex: 1;
         line-height: 1.5;
@@ -520,197 +639,183 @@
         gap: .5rem;
     }
     .price {
-        font-family: 'Fredoka', sans-serif;
-        font-weight: 700;
-        font-size: 1.25rem;
-        color: var(--brand);
-        letter-spacing: .01em;
+        font-family: 'Baloo 2', cursive;
+        font-weight: 800;
+        font-size: 1.35rem;
+        color: var(--ink);
     }
-    .price::before { content: "$"; font-size: .9em; opacity: .7; margin-right: 1px; }
+    .price::before { content: "$"; font-size: .8em; color: var(--red); margin-right: 2px; }
 
-    /* Buttons */
-    .btn {
-        background: linear-gradient(135deg, var(--brand), var(--accent));
+    .mini-add {
+        font-family: 'Nunito', sans-serif;
+        font-weight: 800;
+        font-size: .78rem;
+        padding: .45rem .9rem;
+        border-radius: 10px;
+        border: 3px solid var(--ink);
+        background: var(--green);
         color: #fff;
-        border: none;
-        padding: .65rem 1.2rem;
-        border-radius: 999px;
-        font-weight: 700;
-        font-size: .85rem;
         cursor: pointer;
-        transition: transform .15s, box-shadow .2s, opacity .2s;
-        display: inline-flex;
-        align-items: center;
-        gap: .4rem;
-        font-family: inherit;
-        box-shadow: 0 6px 16px -6px rgba(255,143,177,.7);
-        text-decoration: none;
+        box-shadow: 3px 3px 0 var(--ink);
+        transition: all .15s;
+        text-transform: uppercase;
+        letter-spacing: .03em;
     }
-    .btn:hover {
-        transform: translateY(-2px);
-        box-shadow: 0 10px 22px -8px rgba(201,143,255,.8);
+    .mini-add:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0 var(--ink);
     }
-    .btn:active { transform: translateY(0); }
-    .btn:disabled { opacity: .5; cursor: not-allowed; transform: none; box-shadow: none; }
-    .btn.ghost {
-        background: var(--surface);
-        color: var(--text-dim);
-        border: 2px solid var(--border);
-        box-shadow: none;
+    .mini-add:active {
+        transform: translate(2px, 2px);
+        box-shadow: 1px 1px 0 var(--ink);
     }
-    .btn.ghost:hover {
-        color: var(--brand);
-        border-color: var(--brand);
-        box-shadow: var(--shadow-soft);
-    }
-    .btn.block { width: 100%; justify-content: center; }
-    .btn.lg { padding: .9rem 1.8rem; font-size: .95rem; }
 
-    /* Cart panel */
+    /* ================= CART PANEL ================= */
     .cart-panel {
-        background: var(--surface);
-        border: 2px solid var(--border);
-        border-radius: var(--radius);
+        background: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 20px;
         padding: 1.5rem;
         position: sticky;
-        top: 5.5rem;
-        box-shadow: var(--shadow-soft);
+        top: 6rem;
+        box-shadow: var(--shadow-hard);
     }
     .cart-panel h2 {
-        font-family: 'Fredoka', sans-serif;
+        font-family: 'Baloo 2', cursive;
         font-size: 1.35rem;
-        font-weight: 600;
-        letter-spacing: .01em;
+        font-weight: 800;
+        letter-spacing: -.01em;
         margin-bottom: 1.25rem;
         display: flex;
         align-items: center;
         gap: .5rem;
-        color: var(--text);
+        color: var(--ink);
+        padding-bottom: .75rem;
+        border-bottom: 3px dashed var(--ink);
     }
 
     .cart-empty {
         text-align: center;
         padding: 2rem 1rem;
-        color: var(--text-dim);
+        color: var(--ink-soft);
     }
     .cart-empty .icon {
-        font-size: 3rem;
+        font-size: 3.5rem;
         margin-bottom: .75rem;
-        opacity: .6;
-        animation: sway 3s ease-in-out infinite;
+        animation: bounce 2s ease-in-out infinite;
     }
-    @keyframes sway {
-        0%, 100% { transform: rotate(-5deg); }
-        50%      { transform: rotate(5deg); }
+    @keyframes bounce {
+        0%, 100% { transform: translateY(0) rotate(-4deg); }
+        50%      { transform: translateY(-12px) rotate(4deg); }
     }
+    .cart-empty p { font-weight: 700; }
 
     .cart-item {
         display: flex;
         align-items: center;
         gap: .75rem;
-        padding: .75rem 0;
-        border-bottom: 2px dashed var(--border);
+        padding: .7rem 0;
+        border-bottom: 2px dashed #cbd5e1;
     }
     .cart-item:last-of-type { border-bottom: none; }
     .cart-item-img {
         width: 52px;
         height: 52px;
-        border-radius: 14px;
+        border-radius: 12px;
         overflow: hidden;
         flex-shrink: 0;
-        border: 2px solid var(--border);
-        background: var(--surface-2);
+        border: 3px solid var(--ink);
+        background: #f1f5f9;
     }
     .cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
     .cart-item-info { flex: 1; min-width: 0; }
     .cart-item-name {
         font-size: .875rem;
-        font-weight: 700;
+        font-weight: 800;
         white-space: nowrap;
         overflow: hidden;
         text-overflow: ellipsis;
-        color: var(--text);
+        color: var(--ink);
     }
     .cart-item-price {
         font-size: .78rem;
-        color: var(--text-dim);
+        color: var(--ink-soft);
+        font-weight: 700;
         margin-top: .1rem;
     }
     .qty-controls {
         display: flex;
         align-items: center;
         gap: .2rem;
-        background: var(--surface-2);
+        background: #f1f5f9;
         border-radius: 999px;
         padding: .2rem;
+        border: 2px solid var(--ink);
     }
     .qty-btn {
         width: 26px;
         height: 26px;
         border-radius: 50%;
         border: none;
-        background: var(--surface);
-        color: var(--brand);
+        background: #fff;
+        color: var(--ink);
         font-size: 1rem;
-        font-weight: 700;
+        font-weight: 800;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
         transition: background .15s, transform .15s;
         font-family: inherit;
-        box-shadow: 0 2px 6px rgba(255,143,177,.2);
     }
-    .qty-btn:hover { background: var(--brand); color: #fff; transform: scale(1.1); }
+    .qty-btn:hover { background: var(--yellow); transform: scale(1.1); }
     .qty-value {
         min-width: 24px;
         text-align: center;
         font-size: .85rem;
-        font-weight: 700;
-        color: var(--text);
+        font-weight: 800;
+        color: var(--ink);
     }
 
     .cart-summary {
         margin-top: 1.25rem;
         padding-top: 1.25rem;
-        border-top: 2px dashed var(--border);
+        border-top: 3px dashed var(--ink);
     }
     .summary-row {
         display: flex;
         justify-content: space-between;
         font-size: .875rem;
         padding: .4rem 0;
-        color: var(--text-dim);
+        color: var(--ink-soft);
+        font-weight: 700;
     }
-    .summary-row strong { color: var(--text); font-weight: 700; }
-    .summary-row.free strong { color: var(--mint); }
+    .summary-row strong { color: var(--ink); font-weight: 800; }
+    .summary-row.free strong { color: var(--green); }
     .summary-total {
         display: flex;
         justify-content: space-between;
         align-items: baseline;
         margin-top: 1rem;
         padding-top: 1rem;
-        border-top: 2px dashed var(--border);
+        border-top: 3px solid var(--ink);
     }
     .summary-total .label {
         font-size: .8rem;
         text-transform: uppercase;
         letter-spacing: .12em;
-        color: var(--text-dim);
-        font-weight: 700;
+        color: var(--ink);
+        font-weight: 800;
     }
     .summary-total .amount {
-        font-family: 'Fredoka', sans-serif;
+        font-family: 'Baloo 2', cursive;
         font-size: 2rem;
-        font-weight: 700;
+        font-weight: 800;
+        color: var(--red);
         letter-spacing: -.02em;
-        background: linear-gradient(135deg, var(--brand), var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
     }
 
-    /* Checkout form */
+    /* ================= CHECKOUT ================= */
     .checkout-view { max-width: 1000px; margin: 0 auto; }
     .checkout-layout {
         display: grid;
@@ -721,29 +826,34 @@
     @media (max-width: 820px) { .checkout-layout { grid-template-columns: 1fr; } }
 
     .panel {
-        background: var(--surface);
-        border: 2px solid var(--border);
-        border-radius: var(--radius);
+        background: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 20px;
         padding: 1.75rem;
-        box-shadow: var(--shadow-soft);
+        box-shadow: var(--shadow-hard);
     }
     .panel h2 {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 1rem;
-        font-weight: 600;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.1rem;
+        font-weight: 800;
         text-transform: uppercase;
-        letter-spacing: .12em;
-        color: var(--brand);
+        letter-spacing: .1em;
+        color: var(--ink);
         margin-bottom: 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        padding-bottom: .6rem;
+        border-bottom: 3px solid var(--yellow);
     }
 
     .field { margin-bottom: 1rem; }
     .field label {
         display: block;
         font-size: .78rem;
-        color: var(--text-dim);
+        color: var(--ink);
         margin-bottom: .4rem;
-        font-weight: 700;
+        font-weight: 800;
         text-transform: uppercase;
         letter-spacing: .06em;
     }
@@ -751,79 +861,64 @@
     .field textarea {
         width: 100%;
         padding: .8rem 1rem;
-        background: var(--bg-soft);
-        border: 2px solid var(--border);
-        border-radius: var(--radius-sm);
-        color: var(--text);
+        background: #f8fafc;
+        border: 3px solid var(--ink);
+        border-radius: 12px;
+        color: var(--ink);
         font-size: .95rem;
         font-family: inherit;
-        transition: border-color .2s, box-shadow .2s, background .2s;
+        font-weight: 700;
+        transition: all .15s;
         resize: vertical;
     }
     .field textarea { min-height: 80px; }
     .field input::placeholder,
-    .field textarea::placeholder { color: #c9a8b8; }
+    .field textarea::placeholder { color: #94a3b8; font-weight: 600; }
     .field input:focus,
     .field textarea:focus {
         outline: none;
-        border-color: var(--brand);
+        border-color: var(--blue);
         background: #fff;
-        box-shadow: 0 0 0 4px rgba(255,143,177,.18);
+        box-shadow: 4px 4px 0 var(--blue);
     }
 
-    /* Confirmation */
-    .confirm-wrap { max-width: 560px; margin: 0 auto; text-align: center; }
+    /* ================= CONFIRMATION ================= */
+    .confirm-wrap { max-width: 580px; margin: 0 auto; text-align: center; }
     .confirm-icon {
-        width: 88px;
-        height: 88px;
-        border-radius: 50%;
-        background: linear-gradient(135deg, var(--brand), var(--brand-2));
+        width: 100px;
+        height: 100px;
+        border-radius: 24px;
+        background: var(--green);
+        border: 3px solid var(--ink);
+        box-shadow: var(--shadow-hard);
         display: flex;
         align-items: center;
         justify-content: center;
-        font-size: 2.5rem;
+        font-size: 3rem;
         margin: 0 auto 1.5rem;
-        box-shadow: 0 0 50px -5px rgba(255,143,177,.7);
         animation: pop .6s cubic-bezier(.2,1.4,.5,1);
+        transform: rotate(-6deg);
     }
     @keyframes pop {
         0%   { transform: scale(.3) rotate(-45deg); opacity: 0; }
         60%  { transform: scale(1.15) rotate(8deg); }
-        100% { transform: scale(1) rotate(0); opacity: 1; }
+        100% { transform: scale(1) rotate(-6deg); opacity: 1; }
     }
 
     .receipt {
-        background: var(--surface);
-        border: 2px solid var(--border);
-        border-radius: var(--radius);
+        background: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 20px;
         padding: 1.75rem;
         text-align: left;
-        position: relative;
-        overflow: hidden;
-        box-shadow: var(--shadow-soft);
+        box-shadow: var(--shadow-hard);
     }
-    .receipt::before, .receipt::after {
-        content: "";
-        position: absolute;
-        width: 24px; height: 24px;
-        background: var(--bg);
-        border-radius: 50%;
-        top: 50%;
-        transform: translateY(-50%);
-        border: 2px solid var(--border);
-    }
-    .receipt::before { left: -14px; border-right: none; }
-    .receipt::after  { right: -14px; border-left: none; }
 
     .receipt-id {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 1.75rem;
-        font-weight: 700;
-        letter-spacing: .05em;
-        background: linear-gradient(135deg, var(--brand), var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.9rem;
+        font-weight: 800;
+        color: var(--red);
         text-align: center;
         margin-bottom: .25rem;
     }
@@ -831,67 +926,65 @@
         text-align: center;
         font-size: .7rem;
         letter-spacing: .3em;
-        color: var(--text-dim);
+        color: var(--ink-soft);
         text-transform: uppercase;
         margin-bottom: 1.5rem;
-        font-weight: 700;
+        font-weight: 800;
     }
 
     .receipt-items {
         margin-bottom: 1rem;
         padding-bottom: 1rem;
-        border-bottom: 2px dashed var(--border);
+        border-bottom: 3px dashed var(--ink);
     }
     .receipt-line {
         display: flex;
         justify-content: space-between;
         font-size: .875rem;
         padding: .3rem 0;
+        font-weight: 700;
     }
-    .receipt-line .name { color: var(--text-dim); }
-    .receipt-line .name strong { color: var(--text); margin-right: .3rem; }
+    .receipt-line .name { color: var(--ink-soft); }
+    .receipt-line .name strong { color: var(--ink); margin-right: .3rem; }
 
     .receipt-row {
         display: flex;
         justify-content: space-between;
         padding: .5rem 0;
         font-size: .9rem;
+        font-weight: 700;
     }
-    .receipt-row .k { color: var(--text-dim); }
-    .receipt-row .v { font-weight: 700; text-align: right; color: var(--text); }
+    .receipt-row .k { color: var(--ink-soft); }
+    .receipt-row .v { font-weight: 800; text-align: right; color: var(--ink); }
     .receipt-row.total {
         padding-top: .75rem;
         margin-top: .5rem;
-        border-top: 2px solid var(--border);
+        border-top: 3px solid var(--ink);
         font-size: 1.05rem;
     }
     .receipt-row.total .v {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 1.5rem;
-        background: linear-gradient(135deg, var(--brand), var(--accent));
-        -webkit-background-clip: text;
-        background-clip: text;
-        color: transparent;
+        font-family: 'Baloo 2', cursive;
+        font-size: 1.6rem;
+        color: var(--red);
     }
 
-    /* Orders list */
+    /* ================= ORDERS ================= */
     .orders-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(320px, 1fr));
         gap: 1.25rem;
     }
     .order-card {
-        background: var(--surface);
-        border: 2px solid var(--border);
-        border-radius: var(--radius);
+        background: #fff;
+        border: 3px solid var(--ink);
+        border-radius: 20px;
         padding: 1.25rem;
-        transition: border-color .2s, transform .2s, box-shadow .2s;
-        box-shadow: var(--shadow-soft);
+        box-shadow: var(--shadow-hard-sm);
+        transition: transform .2s, box-shadow .2s;
     }
     .order-card:hover {
-        border-color: var(--brand);
-        transform: translateY(-4px);
-        box-shadow: var(--shadow);
+        transform: translate(-3px, -3px);
+        box-shadow: 6px 6px 0 var(--ink);
     }
     .order-head {
         display: flex;
@@ -899,47 +992,45 @@
         align-items: center;
         margin-bottom: .75rem;
         padding-bottom: .75rem;
-        border-bottom: 2px dashed var(--border);
+        border-bottom: 3px dashed var(--ink);
     }
     .order-id {
-        font-family: 'Fredoka', sans-serif;
+        font-family: 'Baloo 2', cursive;
         font-size: 1.25rem;
-        font-weight: 700;
-        letter-spacing: .03em;
-        color: var(--brand);
+        font-weight: 800;
+        color: var(--blue);
     }
     .status-pill {
-        background: linear-gradient(135deg, var(--mint), #d4f5e5);
-        color: #2d7a5f;
-        border: 2px solid rgba(168,230,207,.7);
+        background: var(--green);
+        color: #fff;
+        border: 2px solid var(--ink);
         padding: .25rem .75rem;
         border-radius: 999px;
-        font-size: .7rem;
-        font-weight: 700;
+        font-size: .68rem;
+        font-weight: 800;
         text-transform: uppercase;
         letter-spacing: .08em;
     }
-    .order-meta { font-size: .82rem; color: var(--text-dim); margin-bottom: .35rem; }
+    .order-meta { font-size: .82rem; color: var(--ink-soft); font-weight: 700; margin-bottom: .35rem; }
     .order-items-list {
         font-size: .82rem;
-        color: var(--text-dim);
+        color: var(--ink-soft);
+        font-weight: 700;
         margin: .5rem 0 .75rem;
         line-height: 1.7;
     }
     .order-total {
-        font-family: 'Fredoka', sans-serif;
+        font-family: 'Baloo 2', cursive;
         font-size: 1.5rem;
-        font-weight: 700;
-        letter-spacing: -.01em;
-        color: var(--brand);
+        font-weight: 800;
+        color: var(--red);
     }
 
-    /* Product detail modal */
+    /* ================= MODAL ================= */
     .modal-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(255,230,240,.78);
-        backdrop-filter: blur(10px);
+        background: rgba(30,41,59,.55);
         display: flex;
         align-items: center;
         justify-content: center;
@@ -947,102 +1038,108 @@
         padding: 1.5rem;
         opacity: 0;
         visibility: hidden;
-        transition: opacity .3s, visibility .3s;
+        transition: opacity .25s, visibility .25s;
     }
     .modal-overlay.active { opacity: 1; visibility: visible; }
     .modal-card {
-        background: var(--surface);
-        max-width: 520px;
+        background: #fff;
+        max-width: 540px;
         width: 100%;
-        border-radius: 40px;
+        border-radius: 22px;
         padding: 1.5rem 1.5rem 2rem;
         text-align: center;
         position: relative;
-        border: 3px solid #fff;
-        box-shadow: 0 40px 60px -20px rgba(255,143,177,.5), 0 0 0 4px var(--border);
-        transform: scale(.9) translateY(20px);
+        border: 3px solid var(--ink);
+        box-shadow: 10px 10px 0 var(--ink);
+        transform: scale(.9) translateY(20px) rotate(-2deg);
         opacity: 0;
-        transition: transform .35s cubic-bezier(.2,1.1,.4,1), opacity .3s;
+        transition: transform .3s cubic-bezier(.2,1.2,.4,1), opacity .25s;
         max-height: 92vh;
         overflow-y: auto;
     }
     .modal-overlay.active .modal-card {
-        transform: scale(1) translateY(0);
+        transform: scale(1) translateY(0) rotate(0);
         opacity: 1;
     }
     .close-modal {
         position: absolute;
         top: 1rem;
         right: 1rem;
-        background: var(--surface-2);
-        border: none;
-        width: 40px;
-        height: 40px;
-        border-radius: 50%;
-        font-size: 1.4rem;
+        background: var(--red);
+        border: 3px solid var(--ink);
+        width: 42px;
+        height: 42px;
+        border-radius: 12px;
+        font-size: 1.3rem;
         line-height: 1;
-        color: var(--text-dim);
+        color: #fff;
         cursor: pointer;
         display: flex;
         align-items: center;
         justify-content: center;
-        transition: all .2s;
+        transition: all .15s;
         font-weight: 400;
         z-index: 5;
+        box-shadow: 3px 3px 0 var(--ink);
     }
     .close-modal:hover {
-        background: var(--brand);
-        color: #fff;
-        transform: rotate(90deg) scale(1.05);
+        transform: translate(-2px, -2px) rotate(90deg);
+        box-shadow: 5px 5px 0 var(--ink);
+    }
+    .close-modal:active {
+        transform: translate(2px, 2px) rotate(90deg);
+        box-shadow: 1px 1px 0 var(--ink);
     }
     .modal-img {
         width: 100%;
         height: 260px;
-        border-radius: 28px;
+        border-radius: 16px;
         overflow: hidden;
         margin-bottom: 1.25rem;
-        border: 3px solid var(--border);
-        background: var(--surface-2);
+        border: 3px solid var(--ink);
+        background: #f1f5f9;
     }
     .modal-img img { width: 100%; height: 100%; object-fit: cover; }
     .modal-cat {
         display: inline-block;
         font-size: .7rem;
-        font-weight: 700;
+        font-weight: 800;
         text-transform: uppercase;
         letter-spacing: .12em;
-        color: var(--accent);
-        background: #f5eaff;
+        color: #fff;
+        background: var(--purple);
         padding: .25rem .85rem;
-        border-radius: 999px;
+        border-radius: 8px;
         margin-bottom: .65rem;
+        border: 2px solid var(--ink);
     }
     .modal-name {
-        font-family: 'Fredoka', sans-serif;
+        font-family: 'Baloo 2', cursive;
         font-size: 2rem;
-        font-weight: 700;
-        color: var(--text);
+        font-weight: 800;
+        color: var(--ink);
         margin: .2rem 0 .3rem;
         line-height: 1.15;
     }
     .modal-desc {
         font-size: .95rem;
-        color: var(--text-dim);
+        color: var(--ink-soft);
+        font-weight: 700;
         line-height: 1.6;
         margin: 1rem 0;
         padding: 1rem 1.2rem;
-        background: var(--bg-soft);
-        border-radius: var(--radius-sm);
-        border: 2px dashed var(--border);
+        background: #fef9e7;
+        border-radius: 12px;
+        border: 3px dashed var(--ink);
     }
     .modal-price {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--brand);
+        font-family: 'Baloo 2', cursive;
+        font-size: 2.2rem;
+        font-weight: 800;
+        color: var(--red);
         margin-bottom: 1.25rem;
     }
-    .modal-price::before { content: "$"; font-size: .75em; margin-right: 3px; }
+    .modal-price::before { content: "$"; font-size: .7em; margin-right: 3px; }
     .modal-actions {
         display: flex;
         gap: .6rem;
@@ -1050,12 +1147,12 @@
         flex-wrap: wrap;
     }
 
-    /* Misc */
+    /* ================= MISC ================= */
     .hidden { display: none !important; }
 
     .toast-area {
         position: fixed;
-        top: 5rem;
+        top: 5.5rem;
         right: 1.5rem;
         z-index: 300;
         display: flex;
@@ -1063,82 +1160,106 @@
         gap: .5rem;
     }
     .toast {
-        background: var(--surface);
-        border: 2px solid var(--border);
-        border-left: 4px solid var(--danger);
+        background: #fff;
+        border: 3px solid var(--ink);
+        box-shadow: var(--shadow-hard-sm);
         padding: .9rem 1.15rem;
-        border-radius: var(--radius-sm);
+        border-radius: 12px;
         font-size: .875rem;
-        font-weight: 600;
-        color: var(--text);
-        box-shadow: var(--shadow);
+        font-weight: 800;
+        color: var(--ink);
         animation: slideIn .3s cubic-bezier(.2,1.2,.5,1);
         max-width: 320px;
     }
-    .toast.success {
-        border-left-color: var(--mint);
-        background: linear-gradient(90deg, rgba(168,230,207,.15), var(--surface));
-    }
+    .toast.success { background: var(--green); color: #fff; }
     @keyframes slideIn {
-        from { transform: translateX(30px) rotate(3deg); opacity: 0; }
+        from { transform: translateX(40px) rotate(3deg); opacity: 0; }
         to   { transform: translateX(0) rotate(0);    opacity: 1; }
     }
 
     .empty {
         text-align: center;
         padding: 3rem 1rem;
-        color: var(--text-dim);
+        color: var(--ink-soft);
+        font-weight: 700;
     }
     .empty .icon {
-        font-size: 3.5rem;
+        font-size: 4rem;
         margin-bottom: 1rem;
-        opacity: .7;
-        animation: sway 3s ease-in-out infinite;
+        animation: bounce 2s ease-in-out infinite;
     }
 
     .back-link {
         display: inline-flex;
         align-items: center;
         gap: .4rem;
-        color: var(--text-dim);
-        font-size: .875rem;
-        font-weight: 600;
+        color: var(--ink);
+        font-size: .9rem;
+        font-weight: 800;
         cursor: pointer;
         margin-bottom: 1rem;
-        transition: color .2s, transform .2s;
-        background: none;
-        border: none;
-        font-family: inherit;
+        background: #fff;
+        border: 3px solid var(--ink);
+        padding: .5rem 1rem;
+        border-radius: 12px;
+        box-shadow: 3px 3px 0 var(--ink);
+        transition: all .15s;
+        text-transform: uppercase;
+        letter-spacing: .03em;
     }
-    .back-link:hover { color: var(--brand); transform: translateX(-3px); }
+    .back-link:hover {
+        transform: translate(-2px, -2px);
+        box-shadow: 5px 5px 0 var(--ink);
+        background: var(--yellow);
+    }
 
-    .petal {
+    /* ================= FLOATING SHAPES ================= */
+    .float-shape {
         position: fixed;
-        top: -30px;
-        font-size: 1.5rem;
-        opacity: .5;
         pointer-events: none;
         z-index: 0;
-        animation: fall linear infinite;
+        animation: floatAround 12s ease-in-out infinite;
     }
-    @keyframes fall {
-        0%   { transform: translateY(-10vh) rotate(0deg); opacity: 0; }
-        10%  { opacity: .6; }
-        90%  { opacity: .6; }
-        100% { transform: translateY(110vh) rotate(360deg); opacity: 0; }
+    @keyframes floatAround {
+        0%, 100% { transform: translate(0, 0) rotate(0deg); }
+        25%      { transform: translate(20px, -30px) rotate(90deg); }
+        50%      { transform: translate(-15px, -50px) rotate(180deg); }
+        75%      { transform: translate(25px, -20px) rotate(270deg); }
+    }
+
+    /* Balloon confetti when adding to cart */
+    .confetti {
+        position: fixed;
+        pointer-events: none;
+        z-index: 999;
+        font-size: 1.5rem;
+        animation: confettiFall 1.6s ease-out forwards;
+    }
+    @keyframes confettiFall {
+        0%   { transform: translateY(0) rotate(0); opacity: 1; }
+        100% { transform: translateY(-200px) rotate(360deg); opacity: 0; }
     }
 </style>
 </head>
 <body>
 
+<!-- Floating background shapes -->
+<div class="float-shape" style="top: 20%; left: 3%; font-size: 3rem;">🧸</div>
+<div class="float-shape" style="top: 60%; left: 6%; font-size: 2.5rem; animation-delay: 2s;">🎈</div>
+<div class="float-shape" style="top: 30%; right: 5%; font-size: 3rem; animation-delay: 1s;">🚀</div>
+<div class="float-shape" style="top: 75%; right: 4%; font-size: 2.5rem; animation-delay: 3s;">🎨</div>
+
 <header>
     <div class="header-inner">
         <div class="logo" onclick="goHome()">
-            <span>Bloom &amp; Petal</span><span>🌸</span>
+            <span class="logo-badge">🧸</span>
+            <span class="logo-text">
+                <span>T</span><span>o</span><span>y</span><span>B</span>ox
+            </span>
         </div>
         <nav>
-            <button class="nav-btn active" id="nav-menu" onclick="goHome()">Bouquets</button>
-            <button class="nav-btn" id="nav-orders" onclick="showOrders()">My Orders</button>
+            <button class="nav-btn active" id="nav-menu" onclick="goHome()">🛍️ Shop</button>
+            <button class="nav-btn" id="nav-orders" onclick="showOrders()">📦 Orders</button>
             <button class="nav-btn" id="nav-cart" onclick="scrollToCart()">
                 🛒 Cart
                 <span class="cart-badge hidden" id="cart-badge">0</span>
@@ -1150,96 +1271,97 @@
 <main>
     <div class="toast-area" id="toast-area"></div>
 
-    <!-- ============ MENU VIEW (HERO + PRODUCTS) ============ -->
+    <!-- ============ MENU VIEW ============ -->
     <section id="view-menu">
 
-        <!-- HERO: DETAILS FIRST -->
+        <!-- HERO -->
         <div class="hero">
             <div class="hero-content">
-                <div class="hero-eyebrow">🌷 Farm-fresh · Same-day delivery</div>
+                <div class="hero-eyebrow">🎈 Free gift wrap on every order</div>
                 <h1 class="hero-title">
-                    Fresh flowers<br>
-                    <span class="accent">delivered</span> with a<br>
-                    <span class="handwritten">little love.</span>
+                    <span class="word1">Play</span>
+                    <span class="word2">more,</span><br>
+                    <span class="word3">worry</span>
+                    <span class="word4">less!</span>
                 </h1>
                 <p class="hero-text">
-                    Every bouquet at Bloom &amp; Petal is hand-tied by our florists the morning it ships —
-                    so your blooms arrive looking like they were just picked from the garden.
-                    Choose a bouquet, add a note, and we'll handle the rest. 🌸
+                    Welcome to ToyBox — where every toy is picked to spark imagination, giggles,
+                    and happy little hands. Safe materials, big smiles, and same-day dispatch
+                    on all your favorites. 🎉
                 </p>
                 <div class="hero-actions">
-                    <a href="#shop" class="btn lg">🌸 Shop Bouquets</a>
-                    <button class="btn ghost lg" onclick="scrollToCart()">View Cart 🛒</button>
+                    <a href="#shop" class="btn btn-red lg">🧸 Shop Toys</a>
+                    <button class="btn lg" onclick="scrollToCart()">🛒 View Cart</button>
                 </div>
                 <div class="hero-stats">
                     <div class="stat-item">
-                        <div class="stat-num">7-day</div>
-                        <div class="stat-label">Freshness guarantee</div>
+                        <div class="stat-num">100%</div>
+                        <div class="stat-label">Safe materials</div>
                     </div>
                     <div class="stat-item">
-                        <div class="stat-num">Free</div>
-                        <div class="stat-label">Delivery over $25</div>
+                        <div class="stat-num">2-day</div>
+                        <div class="stat-label">Fast dispatch</div>
                     </div>
                     <div class="stat-item">
                         <div class="stat-num">4.9★</div>
-                        <div class="stat-label">2,400+ happy senders</div>
+                        <div class="stat-label">Parent approved</div>
                     </div>
                 </div>
             </div>
 
             <div class="hero-visual">
-                <div class="hero-img">
-                    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700&q=80&auto=format&fit=crop" alt="Fresh pink peonies and roses bouquet">
+                <div class="hero-tile">
+                    <img src="https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=800&q=80&auto=format&fit=crop" alt="Colorful toy blocks and plush toys">
                 </div>
-                <div class="hero-img">
-                    <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=500&q=80&auto=format&fit=crop" alt="Colorful tulips in a vase">
+                <div class="hero-tile">
+                    <img src="https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=500&q=80&auto=format&fit=crop" alt="Wooden toy train">
                 </div>
-                <div class="hero-img">
-                    <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=500&q=80&auto=format&fit=crop" alt="Sunflowers in a bouquet">
+                <div class="hero-tile">
+                    <img src="https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=500&q=80&auto=format&fit=crop" alt="Teddy bear plush toy">
                 </div>
-                <div class="hero-float f1">🌿 Cut fresh today</div>
-                <div class="hero-float f2">💐 Hand-tied</div>
+                <div class="hero-sticker s1">✨ New arrivals</div>
+                <div class="hero-sticker s2">💝 Gift ready</div>
             </div>
         </div>
 
         <!-- FEATURES STRIP -->
         <div class="features-strip">
             <div class="feature-card">
-                <div class="feature-icon">🌷</div>
+                <div class="feature-icon">🛡️</div>
                 <div>
-                    <div class="feature-title">Hand-tied Bouquets</div>
-                    <div class="feature-desc">Arranged by florists, not machines.</div>
+                    <div class="feature-title">Safety Tested</div>
+                    <div class="feature-desc">All toys meet CE &amp; ASTM standards.</div>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🚚</div>
+                <div class="feature-icon">🚀</div>
                 <div>
-                    <div class="feature-title">Same-Day Delivery</div>
-                    <div class="feature-desc">Order before 2pm, arrives today.</div>
+                    <div class="feature-title">Fast Shipping</div>
+                    <div class="feature-desc">Dispatched within 24 hours.</div>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">💌</div>
+                <div class="feature-icon">🎁</div>
                 <div>
-                    <div class="feature-title">Free Note Card</div>
-                    <div class="feature-desc">Add a sweet message at checkout.</div>
+                    <div class="feature-title">Free Gift Wrap</div>
+                    <div class="feature-desc">Every order wrapped with care.</div>
                 </div>
             </div>
             <div class="feature-card">
-                <div class="feature-icon">🌿</div>
+                <div class="feature-icon">↩️</div>
                 <div>
-                    <div class="feature-title">7-Day Freshness</div>
-                    <div class="feature-desc">We'll replace any sad blooms.</div>
+                    <div class="feature-title">30-Day Returns</div>
+                    <div class="feature-desc">No worries, no fuss.</div>
                 </div>
             </div>
         </div>
 
-        <!-- PRODUCTS SECTION -->
+        <!-- PRODUCTS -->
         <div class="products-section" id="shop">
             <div class="section-head">
                 <div>
-                    <h2 class="page-title">Today's <span class="accent">Bouquets</span> 🌷</h2>
-                    <p class="page-subtitle">Hand-picked with love, delivered with care.</p>
+                    <h2 class="page-title">Pick Your <span class="accent">Favorites</span> 🎉</h2>
+                    <p class="page-subtitle">Click any toy to see more — add a few to your cart!</p>
                 </div>
             </div>
 
@@ -1249,7 +1371,7 @@
                 <div class="menu-grid" id="menu-grid">Loading…</div>
 
                 <aside class="cart-panel" id="cart-panel">
-                    <h2>💐 Your Bouquet</h2>
+                    <h2>🛒 Your Toy Box</h2>
                     <div id="cart-content"></div>
                 </aside>
             </div>
@@ -1259,21 +1381,21 @@
     <!-- ============ CHECKOUT ============ -->
     <section id="view-checkout" class="hidden">
         <div class="checkout-view">
-            <button class="back-link" onclick="goHome()">← Back to bouquets</button>
+            <button class="back-link" onclick="goHome()">← Back to shop</button>
 
             <div class="section-head">
                 <div>
-                    <h1 class="page-title">Checkout <span class="accent">💌</span></h1>
-                    <p class="page-subtitle">Just a few details to bloom your order.</p>
+                    <h1 class="page-title">Checkout <span class="accent">🎁</span></h1>
+                    <p class="page-subtitle">Almost there — let's get these toys to you.</p>
                 </div>
             </div>
 
             <div class="checkout-layout">
                 <div class="panel">
-                    <h2>Delivery details</h2>
+                    <h2>📦 Delivery details</h2>
                     <div class="field">
                         <label for="name">Your name</label>
-                        <input type="text" id="name" placeholder="Rosie Parker" autocomplete="name">
+                        <input type="text" id="name" placeholder="Alex Parker" autocomplete="name">
                     </div>
                     <div class="field">
                         <label for="phone">Phone number</label>
@@ -1281,19 +1403,19 @@
                     </div>
                     <div class="field">
                         <label for="address">Delivery address</label>
-                        <textarea id="address" placeholder="123 Daisy Lane, Apt 4B, Springfield"></textarea>
+                        <textarea id="address" placeholder="123 Rainbow Road, Apt 4B, Springfield"></textarea>
                     </div>
                     <div class="field">
-                        <label for="notes">A note for the recipient (optional)</label>
-                        <textarea id="notes" placeholder="Happy birthday, my love! 🌸"></textarea>
+                        <label for="notes">Gift note (optional)</label>
+                        <textarea id="notes" placeholder="Happy birthday, superstar! 🎉"></textarea>
                     </div>
                 </div>
 
                 <div class="panel">
-                    <h2>Order summary</h2>
+                    <h2>🧾 Order summary</h2>
                     <div id="checkout-summary"></div>
-                    <button class="btn block lg" id="place-order-btn" onclick="placeOrder()" style="margin-top:1.25rem;">
-                        Send my bouquet 🌷
+                    <button class="btn btn-green block lg" id="place-order-btn" onclick="placeOrder()" style="margin-top:1.25rem;">
+                        Place My Order 🎈
                     </button>
                 </div>
             </div>
@@ -1303,35 +1425,35 @@
     <!-- ============ CONFIRMATION ============ -->
     <section id="view-confirmation" class="hidden">
         <div class="confirm-wrap">
-            <div class="confirm-icon">🌸</div>
-            <h1 class="page-title">Order <span class="accent">Blooming!</span></h1>
+            <div class="confirm-icon">🎉</div>
+            <h1 class="page-title">Order <span class="accent">Confirmed!</span></h1>
             <p class="page-subtitle" style="margin-bottom:1.75rem;">
-                Your flowers are being arranged with love. Arriving soon 💐
+                Your toys are being packed with care. Get ready for fun! 🧸
             </p>
 
             <div class="receipt" id="receipt-card"></div>
 
             <div style="margin-top:1.75rem;display:flex;gap:.75rem;justify-content:center;flex-wrap:wrap;">
-                <button class="btn" onclick="goHome()">Order More</button>
-                <button class="btn ghost" onclick="showOrders()">View All Orders</button>
+                <button class="btn btn-red" onclick="goHome()">Keep Shopping</button>
+                <button class="btn" onclick="showOrders()">View All Orders</button>
             </div>
         </div>
     </section>
 
     <!-- ============ ORDERS ============ -->
     <section id="view-orders" class="hidden">
-        <button class="back-link" onclick="goHome()">← Back to bouquets</button>
+        <button class="back-link" onclick="goHome()">← Back to shop</button>
         <div class="section-head">
             <div>
-                <h1 class="page-title">My <span class="accent">Orders</span> 🧾</h1>
-                <p class="page-subtitle">A garden of past bouquets.</p>
+                <h1 class="page-title">My <span class="accent">Orders</span> 📦</h1>
+                <p class="page-subtitle">All the fun you've ordered so far.</p>
             </div>
         </div>
         <div class="orders-grid" id="orders-grid"></div>
     </section>
 </main>
 
-<!-- ============ PRODUCT DETAIL MODAL ============ -->
+<!-- ============ PRODUCT MODAL ============ -->
 <div class="modal-overlay" id="modal-overlay">
     <div class="modal-card">
         <button class="close-modal" onclick="closeModal()" aria-label="Close">✕</button>
@@ -1370,7 +1492,7 @@ function toast(msg, type = "error") {
     el.className = "toast " + (type === "success" ? "success" : "");
     el.textContent = msg;
     area.appendChild(el);
-    setTimeout(() => el.remove(), 4000);
+    setTimeout(() => el.remove(), 3500);
 }
 
 const store = {
@@ -1383,34 +1505,50 @@ const store = {
     }
 };
 
+// Balloon confetti burst on add-to-cart
+function burstConfetti(x, y) {
+    const emojis = ["🎈","🎉","⭐","🧸","🎁","✨","🌈","🍭"];
+    for (let i = 0; i < 8; i++) {
+        const el = document.createElement("div");
+        el.className = "confetti";
+        el.textContent = emojis[Math.floor(Math.random() * emojis.length)];
+        el.style.left = x + "px";
+        el.style.top = y + "px";
+        el.style.fontSize = (1.2 + Math.random() * 1.2) + "rem";
+        el.style.animationDelay = (i * 0.05) + "s";
+        document.body.appendChild(el);
+        setTimeout(() => el.remove(), 2000);
+    }
+}
+
 // ============================================================
-// MENU DATA — with REAL flower images from Unsplash
+// MENU DATA — toys with real images
 // ============================================================
 const MENU = [
-    { id: "f1",  name: "Cherry Blossom",   category: "Romantic",  price: 18.50, desc: "Delicate pink petals that whisper spring. Perfect for a gentle soul.",
-      img: "https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=600&q=80&auto=format&fit=crop" },
-    { id: "f2",  name: "Tulip Dream",      category: "Spring",    price: 14.90, desc: "Buttercup-yellow tulips — a pocketful of sunshine.",
-      img: "https://images.unsplash.com/photo-1520763185298-1b434c919102?w=600&q=80&auto=format&fit=crop" },
-    { id: "f3",  name: "Daisy Chain",      category: "Cheerful",  price: 12.00, desc: "Cheerful daisies to brighten any room. Simple and sweet.",
-      img: "https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?w=600&q=80&auto=format&fit=crop" },
-    { id: "f4",  name: "Hibiscus Glow",    category: "Tropical",  price: 22.30, desc: "Tropical vibes with a vivid coral bloom. Instant holiday mood.",
-      img: "https://images.unsplash.com/photo-1596438459194-f275f413d6ff?w=600&q=80&auto=format&fit=crop" },
-    { id: "f5",  name: "Sunny Sunflower",  category: "Cheerful",  price: 16.80, desc: "A big smile in flower form. Follows the light all day.",
-      img: "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=600&q=80&auto=format&fit=crop" },
-    { id: "f6",  name: "Velvet Rose",      category: "Romantic",  price: 24.00, desc: "Classic romance with a soft, powdery scent. Pure elegance.",
-      img: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&q=80&auto=format&fit=crop" },
-    { id: "f7",  name: "White Blossom",    category: "Serene",    price: 19.20, desc: "Peaceful and pure — like a quiet morning in the garden.",
-      img: "https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?w=600&q=80&auto=format&fit=crop" },
-    { id: "f8",  name: "Peony Cloud",      category: "Romantic",  price: 26.40, desc: "Fluffy peony blooms — soft, romantic, and utterly dreamy.",
-      img: "https://images.unsplash.com/photo-1596438459194-f275f413d6ff?w=600&q=80&auto=format&fit=crop" },
-    { id: "f9",  name: "Eucalyptus Hug",   category: "Calming",   price: 15.40, desc: "Soft green sprigs — calming and fresh. Great for any bouquet.",
-      img: "https://images.unsplash.com/photo-1509423350716-97f2360af2e4?w=600&q=80&auto=format&fit=crop" },
-    { id: "f10", name: "Lavender Breeze",  category: "Calming",   price: 20.10, desc: "Soothing lavender stems for calm evenings and sweet dreams.",
-      img: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=600&q=80&auto=format&fit=crop" },
-    { id: "f11", name: "Marigold Spark",   category: "Cheerful",  price: 11.20, desc: "Bright marigolds that add a golden spark to any day.",
-      img: "https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?w=600&q=80&auto=format&fit=crop" },
-    { id: "f12", name: "Orchid Elegance",  category: "Luxury",    price: 32.00, desc: "Exotic orchid blooms for a touch of timeless luxury.",
-      img: "https://images.unsplash.com/photo-1567748157439-651aca2ff064?w=600&q=80&auto=format&fit=crop" },
+    { id: "t1", name: "Cuddly Bear",       category: "Plush",     price: 24.99, desc: "Softest teddy in town — ready for hugs, tea parties, and bedtime.",
+      img: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80&auto=format&fit=crop" },
+    { id: "t2", name: "Rainbow Blocks",    category: "Building",  price: 32.50, desc: "50 chunky wooden blocks in every color of the rainbow. Build, stack, knock down, repeat!",
+      img: "https://images.unsplash.com/photo-1558060370-d644479cb6f7?w=600&q=80&auto=format&fit=crop" },
+    { id: "t3", name: "Wooden Train",      category: "Vehicles",  price: 41.00, desc: "Classic wooden train set with magnetic cars. Hours of track-laying fun.",
+      img: "https://images.unsplash.com/photo-1596461404969-9ae70f2830c1?w=600&q=80&auto=format&fit=crop" },
+    { id: "t4", name: "Space Rocket",      category: "Vehicles",  price: 28.75, desc: "Blast off to imaginative galaxies! Press the button for realistic engine sounds.",
+      img: "https://images.unsplash.com/photo-1566576912321-d58ddd7a6088?w=600&q=80&auto=format&fit=crop" },
+    { id: "t5", name: "Art Studio Kit",    category: "Creative",  price: 35.20, desc: "Crayons, watercolors, brushes, and paper — everything to make a masterpiece.",
+      img: "https://images.unsplash.com/photo-1513364776144-60967b0f800f?w=600&q=80&auto=format&fit=crop" },
+    { id: "t6", name: "Dino Friends",      category: "Plush",     price: 19.99, desc: "Roar! A trio of soft dinosaur pals with embroidered eyes — perfect for little hands.",
+      img: "https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=600&q=80&auto=format&fit=crop" },
+    { id: "t7", name: "Puzzle Safari",     category: "Puzzle",    price: 16.50, desc: "24-piece wooden safari puzzle with chunky animal pieces. Learn while you play.",
+      img: "https://images.unsplash.com/photo-1611996575749-79a3a250f948?w=600&q=80&auto=format&fit=crop" },
+    { id: "t8", name: "Robot Buddy",       category: "Tech",      price: 45.00, desc: "A friendly robot that lights up, talks, and teaches basic coding through play.",
+      img: "https://images.unsplash.com/photo-1535378917042-10a22c95931a?w=600&q=80&auto=format&fit=crop" },
+    { id: "t9", name: "Tea Party Set",     category: "Pretend",   price: 27.40, desc: "A charming wooden tea set for endless pretend parties. Includes teapot, cups, and tray.",
+      img: "https://images.unsplash.com/photo-1519689680058-324335c77eba?w=600&q=80&auto=format&fit=crop" },
+    { id: "t10", name: "Magnetic Tiles",   category: "Building",  price: 39.90, desc: "Colorful magnetic tiles that click together into castles, rockets, and more.",
+      img: "https://images.unsplash.com/photo-1587654780291-39c9404d746b?w=600&q=80&auto=format&fit=crop" },
+    { id: "t11", name: "Story Book Set",   category: "Books",     price: 22.00, desc: "A set of 5 beautifully illustrated bedtime stories for little dreamers.",
+      img: "https://images.unsplash.com/photo-1503454537195-1dcabb73ffb9?w=600&q=80&auto=format&fit=crop" },
+    { id: "t12", name: "Outdoor Bubble Kit", category: "Outdoor", price: 14.75, desc: "Giant bubble wands and solution for magical afternoons in the garden.",
+      img: "https://images.unsplash.com/photo-1595429035839-c99c298ffdde?w=600&q=80&auto=format&fit=crop" },
 ];
 
 // ============================================================
@@ -1455,7 +1593,7 @@ function renderMenu() {
                 <p class="food-desc">${m.desc}</p>
                 <div class="food-footer">
                     <span class="price">${m.price.toFixed(2)}</span>
-                    <button class="btn" onclick="event.stopPropagation(); addToCart('${m.id}')">+ Add</button>
+                    <button class="mini-add" onclick="event.stopPropagation(); addToCart('${m.id}', event)">+ Add</button>
                 </div>
             </div>
         </div>
@@ -1476,8 +1614,8 @@ function openProductModal(id) {
         <div class="modal-price">${m.price.toFixed(2)}</div>
         <p class="modal-desc">${m.desc}</p>
         <div class="modal-actions">
-            <button class="btn" onclick="addToCart('${m.id}'); closeModal();">🌸 Add to Bouquet</button>
-            <button class="btn ghost" onclick="closeModal()">Maybe Later</button>
+            <button class="btn btn-green" onclick="addToCart('${m.id}', event); closeModal();">🧸 Add to Cart</button>
+            <button class="btn" onclick="closeModal()">Keep Browsing</button>
         </div>
     `;
     $("modal-overlay").classList.add("active");
@@ -1497,12 +1635,17 @@ document.addEventListener("keydown", (e) => {
 // ============================================================
 // CART
 // ============================================================
-function addToCart(id) {
+function addToCart(id, event) {
     const current = state.cart.get(id) || 0;
     state.cart.set(id, current + 1);
     renderCart();
     const item = state.menu.find(m => m.id === id);
-    toast(`Added ${item.name} to your bouquet 🌸`, "success");
+    toast(`Added ${item.name} to your toy box! 🎉`, "success");
+
+    // Confetti burst at click position (or center)
+    const x = event?.clientX ?? window.innerWidth / 2;
+    const y = event?.clientY ?? window.innerHeight / 2;
+    burstConfetti(x, y);
 }
 
 function changeQty(id, delta) {
@@ -1516,7 +1659,7 @@ function changeQty(id, delta) {
 function clearCart() {
     state.cart.clear();
     renderCart();
-    toast("Bouquet cleared 🌷");
+    toast("Toy box cleared 🧸");
 }
 
 function getCartDetails() {
@@ -1529,7 +1672,7 @@ function getCartDetails() {
         subtotal += lineTotal;
         items.push({ ...m, qty, lineTotal });
     }
-    const deliveryFee = subtotal > 25 ? 0 : (subtotal > 0 ? 2.99 : 0);
+    const deliveryFee = subtotal > 40 ? 0 : (subtotal > 0 ? 4.99 : 0);
     const tax = +(subtotal * 0.08).toFixed(2);
     const total = +(subtotal + deliveryFee + tax).toFixed(2);
     return { items, subtotal: +subtotal.toFixed(2), deliveryFee, tax, total };
@@ -1551,9 +1694,9 @@ function renderCart() {
     if (items.length === 0) {
         content.innerHTML = `
             <div class="cart-empty">
-                <div class="icon">🌷</div>
-                <p>Your bouquet is empty.</p>
-                <p style="font-size:.8rem;margin-top:.5rem;opacity:.8;">Pick a bloom you love!</p>
+                <div class="icon">🧸</div>
+                <p>Your toy box is empty!</p>
+                <p style="font-size:.85rem;margin-top:.5rem;font-weight:600;">Pick something fun →</p>
             </div>`;
         return;
     }
@@ -1578,19 +1721,19 @@ function renderCart() {
             <div class="summary-row"><span>Subtotal</span><strong>$${subtotal.toFixed(2)}</strong></div>
             <div class="summary-row ${deliveryFee === 0 ? "free" : ""}">
                 <span>Delivery</span>
-                <strong>${deliveryFee === 0 ? "FREE 🌿" : "$" + deliveryFee.toFixed(2)}</strong>
+                <strong>${deliveryFee === 0 ? "FREE 🎉" : "$" + deliveryFee.toFixed(2)}</strong>
             </div>
             <div class="summary-row"><span>Tax (8%)</span><strong>$${tax.toFixed(2)}</strong></div>
             <div class="summary-total">
                 <span class="label">Total</span>
                 <span class="amount">$${total.toFixed(2)}</span>
             </div>
-            ${deliveryFee > 0 ? `<p style="font-size:.75rem;margin-top:.5rem;text-align:center;color:var(--text-dim);">Add $${(25 - subtotal).toFixed(2)} more for free delivery 🌸</p>` : ""}
+            ${deliveryFee > 0 ? `<p style="font-size:.78rem;margin-top:.5rem;text-align:center;color:var(--ink-soft);font-weight:700;">Add $${(40 - subtotal).toFixed(2)} more for free delivery 🎁</p>` : ""}
         </div>
 
         <div style="display:flex;gap:.5rem;margin-top:1.25rem;">
-            <button class="btn ghost" onclick="clearCart()" style="flex:1;justify-content:center;">Clear</button>
-            <button class="btn" onclick="goToCheckout()" style="flex:2;justify-content:center;">Checkout →</button>
+            <button class="btn" onclick="clearCart()" style="flex:1;justify-content:center;">Clear</button>
+            <button class="btn btn-blue" onclick="goToCheckout()" style="flex:2;justify-content:center;">Checkout →</button>
         </div>
     `;
 }
@@ -1604,7 +1747,7 @@ function scrollToCart() {
 // CHECKOUT
 // ============================================================
 function goToCheckout() {
-    if (state.cart.size === 0) return toast("Your bouquet is empty 🌷");
+    if (state.cart.size === 0) return toast("Your toy box is empty 🧸");
     renderCheckoutSummary();
     show("view-checkout");
 }
@@ -1623,7 +1766,7 @@ function renderCheckoutSummary() {
         <div class="summary-row"><span>Subtotal</span><strong>$${subtotal.toFixed(2)}</strong></div>
         <div class="summary-row ${deliveryFee === 0 ? "free" : ""}">
             <span>Delivery</span>
-            <strong>${deliveryFee === 0 ? "FREE 🌿" : "$" + deliveryFee.toFixed(2)}</strong>
+            <strong>${deliveryFee === 0 ? "FREE 🎉" : "$" + deliveryFee.toFixed(2)}</strong>
         </div>
         <div class="summary-row"><span>Tax (8%)</span><strong>$${tax.toFixed(2)}</strong></div>
         <div class="summary-total">
@@ -1646,7 +1789,7 @@ function placeOrder() {
     const { items, subtotal, deliveryFee, tax, total } = getCartDetails();
 
     const order = {
-        id: "BP" + Date.now().toString().slice(-6),
+        id: "TB" + Date.now().toString().slice(-6),
         items: items.map(it => ({
             id: it.id, name: it.name, img: it.img,
             qty: it.qty, price: it.price, lineTotal: it.lineTotal,
@@ -1659,9 +1802,9 @@ function placeOrder() {
         }),
     };
 
-    const orders = store.get("bp_orders", []);
+    const orders = store.get("tb_orders", []);
     orders.unshift(order);
-    store.set("bp_orders", orders);
+    store.set("tb_orders", orders);
 
     state.lastOrder = order;
     state.cart.clear();
@@ -1673,7 +1816,7 @@ function placeOrder() {
     $("notes").value = "";
 
     renderReceipt(order);
-    toast("Your bouquet is on its way! 🌸", "success");
+    toast("Order placed! Get ready for fun 🎉", "success");
     show("view-confirmation");
 }
 
@@ -1692,16 +1835,16 @@ function renderReceipt(o) {
         </div>
 
         <div class="receipt-row"><span class="k">Subtotal</span><span class="v">$${o.subtotal.toFixed(2)}</span></div>
-        <div class="receipt-row"><span class="k">Delivery</span><span class="v">${o.deliveryFee === 0 ? "FREE 🌿" : "$" + o.deliveryFee.toFixed(2)}</span></div>
+        <div class="receipt-row"><span class="k">Delivery</span><span class="v">${o.deliveryFee === 0 ? "FREE 🎉" : "$" + o.deliveryFee.toFixed(2)}</span></div>
         <div class="receipt-row"><span class="k">Tax</span><span class="v">$${o.tax.toFixed(2)}</span></div>
         <div class="receipt-row total"><span class="k">Total</span><span class="v">$${o.total.toFixed(2)}</span></div>
 
-        <div style="margin-top:1.25rem;padding-top:1rem;border-top:2px dashed var(--border);">
+        <div style="margin-top:1.25rem;padding-top:1rem;border-top:3px dashed var(--ink);">
             <div class="receipt-row"><span class="k">Name</span><span class="v">${o.name}</span></div>
             <div class="receipt-row"><span class="k">Phone</span><span class="v">${o.phone}</span></div>
             <div class="receipt-row"><span class="k">Address</span><span class="v" style="max-width:60%">${o.address}</span></div>
-            ${o.notes ? `<div class="receipt-row"><span class="k">Note</span><span class="v" style="max-width:60%;font-weight:500">${o.notes}</span></div>` : ""}
-            <div class="receipt-row"><span class="k">Placed at</span><span class="v" style="font-weight:500;color:var(--text-dim)">${o.created_at}</span></div>
+            ${o.notes ? `<div class="receipt-row"><span class="k">Note</span><span class="v" style="max-width:60%;font-weight:700">${o.notes}</span></div>` : ""}
+            <div class="receipt-row"><span class="k">Placed at</span><span class="v" style="font-weight:700;color:var(--ink-soft)">${o.created_at}</span></div>
         </div>
     `;
 }
@@ -1710,15 +1853,15 @@ function renderReceipt(o) {
 // ORDERS LIST
 // ============================================================
 function showOrders() {
-    const orders = store.get("bp_orders", []);
+    const orders = store.get("tb_orders", []);
     const grid = $("orders-grid");
 
     if (!orders.length) {
         grid.innerHTML = `
             <div class="empty" style="grid-column:1/-1">
-                <div class="icon">🌼</div>
-                <p>No orders yet — your garden awaits.</p>
-                <button class="btn" style="margin-top:1rem" onclick="goHome()">Browse Bouquets</button>
+                <div class="icon">📦</div>
+                <p>No orders yet — let's fix that!</p>
+                <button class="btn btn-red" style="margin-top:1rem" onclick="goHome()">Browse Toys</button>
             </div>`;
     } else {
         grid.innerHTML = orders.map(o => `
@@ -1739,23 +1882,6 @@ function showOrders() {
     }
     show("view-orders");
 }
-
-// ============================================================
-// FLOATING PETALS
-// ============================================================
-(function spawnPetals() {
-    const petals = ["🌸","🌷","🌼","🌺","💮","🏵️","🌻","🌹"];
-    setInterval(() => {
-        const p = document.createElement("div");
-        p.className = "petal";
-        p.textContent = petals[Math.floor(Math.random() * petals.length)];
-        p.style.left = Math.random() * 100 + "vw";
-        p.style.animationDuration = (8 + Math.random() * 8) + "s";
-        p.style.fontSize = (1 + Math.random() * 1.2) + "rem";
-        document.body.appendChild(p);
-        setTimeout(() => p.remove(), 16000);
-    }, 1200);
-})();
 
 // ============================================================
 // BOOT
