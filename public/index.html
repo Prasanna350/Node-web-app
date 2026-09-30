@@ -144,20 +144,169 @@
         z-index: 1;
         max-width: 1280px;
         margin: 0 auto;
-        padding: 2.5rem 1.5rem 4rem;
+        padding: 0 1.5rem 4rem;
     }
 
-    .page-head {
+    /* ============ HERO SECTION (DETAILS FIRST) ============ */
+    .hero {
+        display: grid;
+        grid-template-columns: 1.1fr 1fr;
+        gap: 3rem;
+        align-items: center;
+        padding: 3.5rem 0 3rem;
+    }
+    @media (max-width: 900px) {
+        .hero { grid-template-columns: 1fr; text-align: center; padding: 2rem 0; gap: 2rem; }
+        .hero-actions { justify-content: center; }
+        .hero-stats { justify-content: center; }
+    }
+
+    .hero-eyebrow {
+        display: inline-flex;
+        align-items: center;
+        gap: .5rem;
+        background: var(--surface-2);
+        border: 2px dashed var(--border);
+        color: var(--brand);
+        font-size: .78rem;
+        font-weight: 700;
+        text-transform: uppercase;
+        letter-spacing: .12em;
+        padding: .45rem 1.1rem;
+        border-radius: 999px;
+        margin-bottom: 1.25rem;
+    }
+    .hero-title {
+        font-family: 'Fredoka', sans-serif;
+        font-size: clamp(2.4rem, 5vw, 3.8rem);
+        font-weight: 700;
+        line-height: 1.05;
+        letter-spacing: -.02em;
+        margin-bottom: 1.25rem;
+    }
+    .hero-title .accent {
+        background: linear-gradient(90deg, var(--brand), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+    }
+    .hero-title .handwritten {
+        font-family: 'Caveat', cursive;
+        font-weight: 700;
+        color: var(--brand);
+        font-size: 1.15em;
+    }
+    .hero-text {
+        font-size: 1.02rem;
+        color: var(--text-dim);
+        max-width: 30rem;
+        margin-bottom: 2rem;
+        line-height: 1.7;
+    }
+    @media (max-width: 900px) {
+        .hero-text { margin-left: auto; margin-right: auto; }
+    }
+
+    .hero-actions {
+        display: flex;
+        gap: .75rem;
+        flex-wrap: wrap;
+        margin-bottom: 2.25rem;
+    }
+
+    .hero-stats {
+        display: flex;
+        gap: 2rem;
+        flex-wrap: wrap;
+    }
+    .stat-item { text-align: left; }
+    @media (max-width: 900px) { .stat-item { text-align: center; } }
+    .stat-num {
+        font-family: 'Fredoka', sans-serif;
+        font-size: 1.8rem;
+        font-weight: 700;
+        background: linear-gradient(135deg, var(--brand), var(--accent));
+        -webkit-background-clip: text;
+        background-clip: text;
+        color: transparent;
+        line-height: 1;
+    }
+    .stat-label {
+        font-size: .78rem;
+        color: var(--text-dim);
+        font-weight: 600;
+        margin-top: .3rem;
+    }
+
+    /* Hero visual */
+    .hero-visual {
+        position: relative;
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        grid-template-rows: 1fr 1fr;
+        gap: 1rem;
+        height: 460px;
+    }
+    @media (max-width: 900px) { .hero-visual { height: 380px; } }
+    @media (max-width: 500px) { .hero-visual { height: 300px; gap: .6rem; } }
+
+    .hero-img {
+        border-radius: 28px;
+        overflow: hidden;
+        border: 4px solid #fff;
+        box-shadow: var(--shadow);
+        position: relative;
+        background: var(--surface-2);
+    }
+    .hero-img img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .6s cubic-bezier(.2,.8,.2,1);
+    }
+    .hero-img:hover img { transform: scale(1.08); }
+    .hero-img:nth-child(1) { grid-row: span 2; border-radius: 28px 28px 28px 80px; }
+    .hero-img:nth-child(2) { border-radius: 28px 80px 28px 28px; }
+    .hero-img:nth-child(3) { border-radius: 28px 28px 80px 28px; }
+
+    .hero-float {
+        position: absolute;
+        background: var(--surface);
+        border: 2px solid var(--border);
+        border-radius: 999px;
+        padding: .6rem 1.1rem;
+        font-size: .82rem;
+        font-weight: 700;
+        color: var(--text);
+        box-shadow: var(--shadow);
+        display: flex;
+        align-items: center;
+        gap: .5rem;
+        z-index: 5;
+        animation: floaty 4s ease-in-out infinite;
+    }
+    .hero-float.f1 { top: 8%; left: -18px; }
+    .hero-float.f2 { bottom: 12%; right: -14px; animation-delay: 1.5s; }
+    @keyframes floaty {
+        0%, 100% { transform: translateY(0); }
+        50%      { transform: translateY(-10px); }
+    }
+    @media (max-width: 500px) {
+        .hero-float { font-size: .7rem; padding: .45rem .85rem; }
+    }
+
+    /* ============ SECTION HEAD ============ */
+    .section-head {
         display: flex;
         align-items: flex-end;
         justify-content: space-between;
-        margin-bottom: 2rem;
+        margin-bottom: 1.75rem;
         flex-wrap: wrap;
         gap: 1rem;
     }
     .page-title {
         font-family: 'Fredoka', sans-serif;
-        font-size: clamp(2rem, 4vw, 2.75rem);
+        font-size: clamp(1.9rem, 3.6vw, 2.5rem);
         font-weight: 700;
         letter-spacing: -.01em;
         line-height: 1.1;
@@ -177,7 +326,56 @@
         font-size: 1.35rem;
     }
 
-    /* Category tabs */
+    /* ============ FEATURES STRIP ============ */
+    .features-strip {
+        display: grid;
+        grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+        gap: 1rem;
+        margin-bottom: 3rem;
+    }
+    .feature-card {
+        background: var(--surface);
+        border: 2px solid var(--border);
+        border-radius: var(--radius);
+        padding: 1.35rem 1.25rem;
+        display: flex;
+        align-items: center;
+        gap: 1rem;
+        box-shadow: var(--shadow-soft);
+        transition: transform .25s, border-color .25s;
+    }
+    .feature-card:hover {
+        transform: translateY(-4px);
+        border-color: var(--brand);
+    }
+    .feature-icon {
+        width: 48px;
+        height: 48px;
+        border-radius: 14px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        font-size: 1.5rem;
+        flex-shrink: 0;
+        background: var(--surface-2);
+        border: 2px solid var(--border);
+    }
+    .feature-title {
+        font-family: 'Fredoka', sans-serif;
+        font-size: .95rem;
+        font-weight: 600;
+        color: var(--text);
+    }
+    .feature-desc {
+        font-size: .78rem;
+        color: var(--text-dim);
+        line-height: 1.4;
+        margin-top: .15rem;
+    }
+
+    /* ============ PRODUCT SECTION ============ */
+    .products-section { padding-top: 1rem; scroll-margin-top: 90px; }
+
     .category-tabs {
         display: flex;
         gap: .5rem;
@@ -209,7 +407,6 @@
         box-shadow: 0 6px 14px -6px rgba(201,143,255,.6);
     }
 
-    /* Layout */
     .shop-layout {
         display: grid;
         grid-template-columns: 1fr 380px;
@@ -221,7 +418,6 @@
         .cart-panel { position: static !important; }
     }
 
-    /* Menu grid */
     .menu-grid {
         display: grid;
         grid-template-columns: repeat(auto-fill, minmax(230px, 1fr));
@@ -245,32 +441,31 @@
     }
     .food-visual {
         aspect-ratio: 4 / 3;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        font-size: 4rem;
         position: relative;
         overflow: hidden;
+        background: var(--surface-2);
     }
+    .food-visual img {
+        width: 100%;
+        height: 100%;
+        object-fit: cover;
+        transition: transform .5s cubic-bezier(.2,.8,.2,1);
+        display: block;
+    }
+    .food-card:hover .food-visual img { transform: scale(1.12); }
     .food-visual::after {
         content: "";
         position: absolute;
         inset: 0;
-        background: radial-gradient(circle at 50% 120%, rgba(255,255,255,.4), transparent 60%);
+        background: linear-gradient(to top, rgba(74,44,58,.28), transparent 55%);
+        pointer-events: none;
     }
-    .food-visual .emoji {
-        position: relative;
-        z-index: 1;
-        filter: drop-shadow(0 10px 18px rgba(255,143,177,.35));
-        transition: transform .4s cubic-bezier(.2,.8,.2,1);
-    }
-    .food-card:hover .food-visual .emoji { transform: scale(1.2) rotate(-8deg); }
 
     .cat-badge {
         position: absolute;
         top: .75rem;
         left: .75rem;
-        background: rgba(255,255,255,.85);
+        background: rgba(255,255,255,.92);
         backdrop-filter: blur(8px);
         color: var(--text);
         padding: .3rem .7rem;
@@ -281,6 +476,21 @@
         z-index: 2;
         border: 2px solid rgba(255,143,177,.3);
         text-transform: uppercase;
+    }
+    .quick-tag {
+        position: absolute;
+        bottom: .75rem;
+        right: .75rem;
+        background: var(--brand);
+        color: #fff;
+        padding: .28rem .7rem;
+        border-radius: 999px;
+        font-size: .66rem;
+        font-weight: 700;
+        z-index: 2;
+        text-transform: uppercase;
+        letter-spacing: .06em;
+        box-shadow: 0 4px 10px -3px rgba(255,143,177,.8);
     }
 
     .food-info { padding: 1rem 1.1rem 1.25rem; flex: 1; display: flex; flex-direction: column; }
@@ -298,6 +508,10 @@
         margin-bottom: 1rem;
         flex: 1;
         line-height: 1.5;
+        display: -webkit-box;
+        -webkit-line-clamp: 2;
+        -webkit-box-orient: vertical;
+        overflow: hidden;
     }
     .food-footer {
         display: flex;
@@ -330,6 +544,7 @@
         gap: .4rem;
         font-family: inherit;
         box-shadow: 0 6px 16px -6px rgba(255,143,177,.7);
+        text-decoration: none;
     }
     .btn:hover {
         transform: translateY(-2px);
@@ -349,9 +564,7 @@
         box-shadow: var(--shadow-soft);
     }
     .btn.block { width: 100%; justify-content: center; }
-    .btn.danger { background: var(--danger); color: #fff; }
-    .btn.danger:hover { box-shadow: 0 8px 20px -6px rgba(255,107,138,.7); }
-    .btn.small { padding: .4rem .9rem; font-size: .78rem; }
+    .btn.lg { padding: .9rem 1.8rem; font-size: .95rem; }
 
     /* Cart panel */
     .cart-panel {
@@ -399,17 +612,16 @@
         border-bottom: 2px dashed var(--border);
     }
     .cart-item:last-of-type { border-bottom: none; }
-    .cart-item-emoji {
-        font-size: 1.75rem;
-        width: 46px;
-        height: 46px;
-        display: flex;
-        align-items: center;
-        justify-content: center;
-        background: var(--surface-2);
+    .cart-item-img {
+        width: 52px;
+        height: 52px;
         border-radius: 14px;
+        overflow: hidden;
         flex-shrink: 0;
+        border: 2px solid var(--border);
+        background: var(--surface-2);
     }
+    .cart-item-img img { width: 100%; height: 100%; object-fit: cover; }
     .cart-item-info { flex: 1; min-width: 0; }
     .cart-item-name {
         font-size: .875rem;
@@ -506,9 +718,7 @@
         gap: 2rem;
         align-items: start;
     }
-    @media (max-width: 820px) {
-        .checkout-layout { grid-template-columns: 1fr; }
-    }
+    @media (max-width: 820px) { .checkout-layout { grid-template-columns: 1fr; } }
 
     .panel {
         background: var(--surface);
@@ -562,11 +772,7 @@
     }
 
     /* Confirmation */
-    .confirm-wrap {
-        max-width: 560px;
-        margin: 0 auto;
-        text-align: center;
-    }
+    .confirm-wrap { max-width: 560px; margin: 0 auto; text-align: center; }
     .confirm-icon {
         width: 88px;
         height: 88px;
@@ -713,11 +919,7 @@
         text-transform: uppercase;
         letter-spacing: .08em;
     }
-    .order-meta {
-        font-size: .82rem;
-        color: var(--text-dim);
-        margin-bottom: .35rem;
-    }
+    .order-meta { font-size: .82rem; color: var(--text-dim); margin-bottom: .35rem; }
     .order-items-list {
         font-size: .82rem;
         color: var(--text-dim);
@@ -736,7 +938,7 @@
     .modal-overlay {
         position: fixed;
         inset: 0;
-        background: rgba(255,230,240,.75);
+        background: rgba(255,230,240,.78);
         backdrop-filter: blur(10px);
         display: flex;
         align-items: center;
@@ -747,16 +949,13 @@
         visibility: hidden;
         transition: opacity .3s, visibility .3s;
     }
-    .modal-overlay.active {
-        opacity: 1;
-        visibility: visible;
-    }
+    .modal-overlay.active { opacity: 1; visibility: visible; }
     .modal-card {
         background: var(--surface);
-        max-width: 460px;
+        max-width: 520px;
         width: 100%;
         border-radius: 40px;
-        padding: 2rem 1.75rem;
+        padding: 1.5rem 1.5rem 2rem;
         text-align: center;
         position: relative;
         border: 3px solid #fff;
@@ -764,7 +963,7 @@
         transform: scale(.9) translateY(20px);
         opacity: 0;
         transition: transform .35s cubic-bezier(.2,1.1,.4,1), opacity .3s;
-        max-height: 90vh;
+        max-height: 92vh;
         overflow-y: auto;
     }
     .modal-overlay.active .modal-card {
@@ -789,25 +988,23 @@
         justify-content: center;
         transition: all .2s;
         font-weight: 400;
+        z-index: 5;
     }
     .close-modal:hover {
         background: var(--brand);
         color: #fff;
         transform: rotate(90deg) scale(1.05);
     }
-    .modal-emoji {
-        font-size: 5.5rem;
-        filter: drop-shadow(0 16px 16px rgba(255,143,177,.5));
-        margin-bottom: .5rem;
-        animation: pop .5s cubic-bezier(.2,1.2,.5,1);
+    .modal-img {
+        width: 100%;
+        height: 260px;
+        border-radius: 28px;
+        overflow: hidden;
+        margin-bottom: 1.25rem;
+        border: 3px solid var(--border);
+        background: var(--surface-2);
     }
-    .modal-name {
-        font-family: 'Fredoka', sans-serif;
-        font-size: 2rem;
-        font-weight: 700;
-        color: var(--text);
-        margin: .2rem 0 .3rem;
-    }
+    .modal-img img { width: 100%; height: 100%; object-fit: cover; }
     .modal-cat {
         display: inline-block;
         font-size: .7rem;
@@ -818,7 +1015,15 @@
         background: #f5eaff;
         padding: .25rem .85rem;
         border-radius: 999px;
-        margin-bottom: .75rem;
+        margin-bottom: .65rem;
+    }
+    .modal-name {
+        font-family: 'Fredoka', sans-serif;
+        font-size: 2rem;
+        font-weight: 700;
+        color: var(--text);
+        margin: .2rem 0 .3rem;
+        line-height: 1.15;
     }
     .modal-desc {
         font-size: .95rem;
@@ -905,12 +1110,8 @@
         border: none;
         font-family: inherit;
     }
-    .back-link:hover {
-        color: var(--brand);
-        transform: translateX(-3px);
-    }
+    .back-link:hover { color: var(--brand); transform: translateX(-3px); }
 
-    /* Cute floating petals */
     .petal {
         position: fixed;
         top: -30px;
@@ -949,24 +1150,109 @@
 <main>
     <div class="toast-area" id="toast-area"></div>
 
-    <!-- ============ MENU ============ -->
+    <!-- ============ MENU VIEW (HERO + PRODUCTS) ============ -->
     <section id="view-menu">
-        <div class="page-head">
-            <div>
-                <h1 class="page-title">Today's <span class="accent">Bouquets</span> 🌷</h1>
-                <p class="page-subtitle">Hand-picked with love, delivered with care.</p>
+
+        <!-- HERO: DETAILS FIRST -->
+        <div class="hero">
+            <div class="hero-content">
+                <div class="hero-eyebrow">🌷 Farm-fresh · Same-day delivery</div>
+                <h1 class="hero-title">
+                    Fresh flowers<br>
+                    <span class="accent">delivered</span> with a<br>
+                    <span class="handwritten">little love.</span>
+                </h1>
+                <p class="hero-text">
+                    Every bouquet at Bloom &amp; Petal is hand-tied by our florists the morning it ships —
+                    so your blooms arrive looking like they were just picked from the garden.
+                    Choose a bouquet, add a note, and we'll handle the rest. 🌸
+                </p>
+                <div class="hero-actions">
+                    <a href="#shop" class="btn lg">🌸 Shop Bouquets</a>
+                    <button class="btn ghost lg" onclick="scrollToCart()">View Cart 🛒</button>
+                </div>
+                <div class="hero-stats">
+                    <div class="stat-item">
+                        <div class="stat-num">7-day</div>
+                        <div class="stat-label">Freshness guarantee</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">Free</div>
+                        <div class="stat-label">Delivery over $25</div>
+                    </div>
+                    <div class="stat-item">
+                        <div class="stat-num">4.9★</div>
+                        <div class="stat-label">2,400+ happy senders</div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="hero-visual">
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1490750967868-88aa4486c946?w=700&q=80&auto=format&fit=crop" alt="Fresh pink peonies and roses bouquet">
+                </div>
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1508610048659-a06b669e3321?w=500&q=80&auto=format&fit=crop" alt="Colorful tulips in a vase">
+                </div>
+                <div class="hero-img">
+                    <img src="https://images.unsplash.com/photo-1563241527-3004b7be0ffd?w=500&q=80&auto=format&fit=crop" alt="Sunflowers in a bouquet">
+                </div>
+                <div class="hero-float f1">🌿 Cut fresh today</div>
+                <div class="hero-float f2">💐 Hand-tied</div>
             </div>
         </div>
 
-        <div class="category-tabs" id="category-tabs"></div>
+        <!-- FEATURES STRIP -->
+        <div class="features-strip">
+            <div class="feature-card">
+                <div class="feature-icon">🌷</div>
+                <div>
+                    <div class="feature-title">Hand-tied Bouquets</div>
+                    <div class="feature-desc">Arranged by florists, not machines.</div>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🚚</div>
+                <div>
+                    <div class="feature-title">Same-Day Delivery</div>
+                    <div class="feature-desc">Order before 2pm, arrives today.</div>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">💌</div>
+                <div>
+                    <div class="feature-title">Free Note Card</div>
+                    <div class="feature-desc">Add a sweet message at checkout.</div>
+                </div>
+            </div>
+            <div class="feature-card">
+                <div class="feature-icon">🌿</div>
+                <div>
+                    <div class="feature-title">7-Day Freshness</div>
+                    <div class="feature-desc">We'll replace any sad blooms.</div>
+                </div>
+            </div>
+        </div>
 
-        <div class="shop-layout">
-            <div class="menu-grid" id="menu-grid">Loading…</div>
+        <!-- PRODUCTS SECTION -->
+        <div class="products-section" id="shop">
+            <div class="section-head">
+                <div>
+                    <h2 class="page-title">Today's <span class="accent">Bouquets</span> 🌷</h2>
+                    <p class="page-subtitle">Hand-picked with love, delivered with care.</p>
+                </div>
+            </div>
 
-            <aside class="cart-panel" id="cart-panel">
-                <h2>💐 Your Bouquet</h2>
-                <div id="cart-content"></div>
-            </aside>
+            <div class="category-tabs" id="category-tabs"></div>
+
+            <div class="shop-layout">
+                <div class="menu-grid" id="menu-grid">Loading…</div>
+
+                <aside class="cart-panel" id="cart-panel">
+                    <h2>💐 Your Bouquet</h2>
+                    <div id="cart-content"></div>
+                </aside>
+            </div>
         </div>
     </section>
 
@@ -975,7 +1261,7 @@
         <div class="checkout-view">
             <button class="back-link" onclick="goHome()">← Back to bouquets</button>
 
-            <div class="page-head">
+            <div class="section-head">
                 <div>
                     <h1 class="page-title">Checkout <span class="accent">💌</span></h1>
                     <p class="page-subtitle">Just a few details to bloom your order.</p>
@@ -1006,7 +1292,7 @@
                 <div class="panel">
                     <h2>Order summary</h2>
                     <div id="checkout-summary"></div>
-                    <button class="btn block" id="place-order-btn" onclick="placeOrder()" style="margin-top:1.25rem;">
+                    <button class="btn block lg" id="place-order-btn" onclick="placeOrder()" style="margin-top:1.25rem;">
                         Send my bouquet 🌷
                     </button>
                 </div>
@@ -1035,7 +1321,7 @@
     <!-- ============ ORDERS ============ -->
     <section id="view-orders" class="hidden">
         <button class="back-link" onclick="goHome()">← Back to bouquets</button>
-        <div class="page-head">
+        <div class="section-head">
             <div>
                 <h1 class="page-title">My <span class="accent">Orders</span> 🧾</h1>
                 <p class="page-subtitle">A garden of past bouquets.</p>
@@ -1059,7 +1345,7 @@
 // ============================================================
 const state = {
     menu: [],
-    cart: new Map(),        // id -> qty
+    cart: new Map(),
     activeCategory: "All",
     lastOrder: null,
 };
@@ -1087,7 +1373,6 @@ function toast(msg, type = "error") {
     setTimeout(() => el.remove(), 4000);
 }
 
-// Local storage helpers
 const store = {
     get(key, fallback) {
         try { return JSON.parse(localStorage.getItem(key)) ?? fallback; }
@@ -1099,25 +1384,33 @@ const store = {
 };
 
 // ============================================================
-// MENU DATA (local, no API needed)
+// MENU DATA — with REAL flower images from Unsplash
 // ============================================================
 const MENU = [
-    { id: "f1",  name: "Cherry Blossom",   emoji: "🌸", category: "Romantic",  price: 18.50, color: "#ffb6c1", desc: "Delicate pink petals that whisper spring. Perfect for a gentle soul." },
-    { id: "f2",  name: "Tulip Dream",      emoji: "🌷", category: "Spring",    price: 14.90, color: "#ffd1a9", desc: "Buttercup-yellow tulips — a pocketful of sunshine." },
-    { id: "f3",  name: "Daisy Chain",      emoji: "🌼", category: "Cheerful",  price: 12.00, color: "#fff3b0", desc: "Cheerful daisies to brighten any room. Simple and sweet." },
-    { id: "f4",  name: "Hibiscus Glow",    emoji: "🌺", category: "Tropical",  price: 22.30, color: "#ff9e9e", desc: "Tropical vibes with a vivid coral bloom. Instant holiday mood." },
-    { id: "f5",  name: "Sunny Sunflower",  emoji: "🌻", category: "Cheerful",  price: 16.80, color: "#ffe066", desc: "A big smile in flower form. Follows the light all day." },
-    { id: "f6",  name: "Velvet Rose",      emoji: "🌹", category: "Romantic",  price: 24.00, color: "#ff8fa3", desc: "Classic romance with a soft, powdery scent. Pure elegance." },
-    { id: "f7",  name: "White Blossom",    emoji: "💮", category: "Serene",    price: 19.20, color: "#e6e6fa", desc: "Peaceful and pure — like a quiet morning in the garden." },
-    { id: "f8",  name: "Rosette Charm",    emoji: "🏵️", category: "Vintage",   price: 21.50, color: "#ffc8dd", desc: "A little rosette that looks like a ribbon. Vintage cute." },
-    { id: "f9",  name: "Eucalyptus Hug",   emoji: "🌿", category: "Calming",   price: 15.40, color: "#c7f0db", desc: "Soft green sprigs — calming and fresh. Great for any bouquet." },
-    { id: "f10", name: "Pink Petal Mix",   emoji: "🌸", category: "Romantic",  price: 27.90, color: "#ffc2d4", desc: "A handful of pink happiness: cherry, peony, and carnation notes." },
-    { id: "f11", name: "Lavender Breeze",  emoji: "💜", category: "Calming",   price: 20.10, color: "#d8b4fe", desc: "Soothing lavender stems for calm evenings and sweet dreams." },
-    { id: "f12", name: "Mint Whisper",     emoji: "🍃", category: "Calming",   price: 13.60, color: "#b9f6ca", desc: "Fresh minty greens that bring a breath of fresh air." },
-    { id: "f13", name: "Peony Cloud",      emoji: "🌸", category: "Romantic",  price: 26.40, color: "#ffb3c6", desc: "Fluffy peony blooms — soft, romantic, and utterly dreamy." },
-    { id: "f14", name: "Marigold Spark",   emoji: "🏵️", category: "Cheerful", price: 11.20, color: "#ffcc80", desc: "Bright marigolds that add a golden spark to any day." },
-    { id: "f15", name: "Orchid Elegance",  emoji: "🌺", category: "Luxury",    price: 32.00, color: "#e1bee7", desc: "Exotic orchid blooms for a touch of timeless luxury." },
-    { id: "f16", name: "Forget-Me-Not",    emoji: "💙", category: "Serene",    price: 17.30, color: "#bbdefb", desc: "Tiny blue blossoms that carry sweet, lasting memories." },
+    { id: "f1",  name: "Cherry Blossom",   category: "Romantic",  price: 18.50, desc: "Delicate pink petals that whisper spring. Perfect for a gentle soul.",
+      img: "https://images.unsplash.com/photo-1522748906645-95d8adfd52c7?w=600&q=80&auto=format&fit=crop" },
+    { id: "f2",  name: "Tulip Dream",      category: "Spring",    price: 14.90, desc: "Buttercup-yellow tulips — a pocketful of sunshine.",
+      img: "https://images.unsplash.com/photo-1520763185298-1b434c919102?w=600&q=80&auto=format&fit=crop" },
+    { id: "f3",  name: "Daisy Chain",      category: "Cheerful",  price: 12.00, desc: "Cheerful daisies to brighten any room. Simple and sweet.",
+      img: "https://images.unsplash.com/photo-1560717789-0ac7c58ac90a?w=600&q=80&auto=format&fit=crop" },
+    { id: "f4",  name: "Hibiscus Glow",    category: "Tropical",  price: 22.30, desc: "Tropical vibes with a vivid coral bloom. Instant holiday mood.",
+      img: "https://images.unsplash.com/photo-1596438459194-f275f413d6ff?w=600&q=80&auto=format&fit=crop" },
+    { id: "f5",  name: "Sunny Sunflower",  category: "Cheerful",  price: 16.80, desc: "A big smile in flower form. Follows the light all day.",
+      img: "https://images.unsplash.com/photo-1597848212624-a19eb35e2651?w=600&q=80&auto=format&fit=crop" },
+    { id: "f6",  name: "Velvet Rose",      category: "Romantic",  price: 24.00, desc: "Classic romance with a soft, powdery scent. Pure elegance.",
+      img: "https://images.unsplash.com/photo-1518895949257-7621c3c786d7?w=600&q=80&auto=format&fit=crop" },
+    { id: "f7",  name: "White Blossom",    category: "Serene",    price: 19.20, desc: "Peaceful and pure — like a quiet morning in the garden.",
+      img: "https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?w=600&q=80&auto=format&fit=crop" },
+    { id: "f8",  name: "Peony Cloud",      category: "Romantic",  price: 26.40, desc: "Fluffy peony blooms — soft, romantic, and utterly dreamy.",
+      img: "https://images.unsplash.com/photo-1596438459194-f275f413d6ff?w=600&q=80&auto=format&fit=crop" },
+    { id: "f9",  name: "Eucalyptus Hug",   category: "Calming",   price: 15.40, desc: "Soft green sprigs — calming and fresh. Great for any bouquet.",
+      img: "https://images.unsplash.com/photo-1509423350716-97f2360af2e4?w=600&q=80&auto=format&fit=crop" },
+    { id: "f10", name: "Lavender Breeze",  category: "Calming",   price: 20.10, desc: "Soothing lavender stems for calm evenings and sweet dreams.",
+      img: "https://images.unsplash.com/photo-1499002238440-d264edd596ec?w=600&q=80&auto=format&fit=crop" },
+    { id: "f11", name: "Marigold Spark",   category: "Cheerful",  price: 11.20, desc: "Bright marigolds that add a golden spark to any day.",
+      img: "https://images.unsplash.com/photo-1502977249166-824b3a8a4d6d?w=600&q=80&auto=format&fit=crop" },
+    { id: "f12", name: "Orchid Elegance",  category: "Luxury",    price: 32.00, desc: "Exotic orchid blooms for a touch of timeless luxury.",
+      img: "https://images.unsplash.com/photo-1567748157439-651aca2ff064?w=600&q=80&auto=format&fit=crop" },
 ];
 
 // ============================================================
@@ -1152,9 +1445,10 @@ function renderMenu() {
 
     $("menu-grid").innerHTML = items.map(m => `
         <div class="food-card" onclick="openProductModal('${m.id}')">
-            <div class="food-visual" style="background: linear-gradient(135deg, ${m.color}55, ${m.color}15);">
+            <div class="food-visual">
                 <span class="cat-badge">${m.category}</span>
-                <span class="emoji">${m.emoji}</span>
+                <span class="quick-tag">Tap for details</span>
+                <img src="${m.img}" alt="${m.name}" loading="lazy">
             </div>
             <div class="food-info">
                 <h3>${m.name}</h3>
@@ -1176,7 +1470,7 @@ function openProductModal(id) {
     if (!m) return;
 
     $("modal-body").innerHTML = `
-        <div class="modal-emoji">${m.emoji}</div>
+        <div class="modal-img"><img src="${m.img}" alt="${m.name}"></div>
         <div class="modal-cat">${m.category}</div>
         <h2 class="modal-name">${m.name}</h2>
         <div class="modal-price">${m.price.toFixed(2)}</div>
@@ -1193,7 +1487,6 @@ function closeModal() {
     $("modal-overlay").classList.remove("active");
 }
 
-// Close modal on overlay click / Escape
 $("modal-overlay").addEventListener("click", (e) => {
     if (e.target === $("modal-overlay")) closeModal();
 });
@@ -1268,7 +1561,7 @@ function renderCart() {
     content.innerHTML = `
         ${items.map(it => `
             <div class="cart-item">
-                <div class="cart-item-emoji">${it.emoji}</div>
+                <div class="cart-item-img"><img src="${it.img}" alt="${it.name}"></div>
                 <div class="cart-item-info">
                     <div class="cart-item-name">${it.name}</div>
                     <div class="cart-item-price">$${it.price.toFixed(2)} each</div>
@@ -1322,7 +1615,7 @@ function renderCheckoutSummary() {
         <div class="receipt-items">
             ${items.map(it => `
                 <div class="receipt-line">
-                    <span class="name"><strong>${it.qty}×</strong> ${it.emoji} ${it.name}</span>
+                    <span class="name"><strong>${it.qty}×</strong> ${it.name}</span>
                     <span>$${it.lineTotal.toFixed(2)}</span>
                 </div>
             `).join("")}
@@ -1352,32 +1645,20 @@ function placeOrder() {
 
     const { items, subtotal, deliveryFee, tax, total } = getCartDetails();
 
-    // Build order object
     const order = {
         id: "BP" + Date.now().toString().slice(-6),
         items: items.map(it => ({
-            id: it.id,
-            name: it.name,
-            emoji: it.emoji,
-            qty: it.qty,
-            price: it.price,
-            lineTotal: it.lineTotal,
+            id: it.id, name: it.name, img: it.img,
+            qty: it.qty, price: it.price, lineTotal: it.lineTotal,
         })),
-        subtotal,
-        deliveryFee,
-        tax,
-        total,
-        name,
-        phone,
-        address,
-        notes,
+        subtotal, deliveryFee, tax, total,
+        name, phone, address, notes,
         status: "Preparing",
         created_at: new Date().toLocaleString("en-US", {
             month: "short", day: "numeric", hour: "2-digit", minute: "2-digit"
         }),
     };
 
-    // Save order to localStorage
     const orders = store.get("bp_orders", []);
     orders.unshift(order);
     store.set("bp_orders", orders);
@@ -1404,7 +1685,7 @@ function renderReceipt(o) {
         <div class="receipt-items">
             ${o.items.map(it => `
                 <div class="receipt-line">
-                    <span class="name"><strong>${it.qty}×</strong> ${it.emoji} ${it.name}</span>
+                    <span class="name"><strong>${it.qty}×</strong> ${it.name}</span>
                     <span>$${it.lineTotal.toFixed(2)}</span>
                 </div>
             `).join("")}
@@ -1450,7 +1731,7 @@ function showOrders() {
                 <div class="order-meta">📍 ${o.address}</div>
                 <div class="order-meta">🕐 ${o.created_at}</div>
                 <div class="order-items-list">
-                    ${o.items.map(it => `${it.qty}× ${it.emoji} ${it.name}`).join("<br>")}
+                    ${o.items.map(it => `${it.qty}× ${it.name}`).join("<br>")}
                 </div>
                 <div class="order-total">$${o.total.toFixed(2)}</div>
             </div>
