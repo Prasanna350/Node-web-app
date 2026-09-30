@@ -176,7 +176,6 @@
     background: #fafff8;
   }
 
-  /* Square image inside circular background */
   .toy-image-wrapper {
     width: 150px; height: 150px; display: flex; align-items: center; justify-content: center;
     margin-bottom: 1rem;
@@ -564,119 +563,120 @@
 </footer>
 
 <script>
-  // ========== PRODUCT DATA – Panda theme shop, wide range of toys ==========
+  // ========== PRODUCT DATA – TOY/PLUSH IMAGES (not real animals) ==========
+  // All images are of plush toys, teddy bears, or toy figures — not live animals.
   const toys = [
     {
       id: 1,
-      name: 'Bamboo Bear',
-      image: 'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=400&h=400&fit=crop&crop=entropy&auto=format',
+      name: 'Bamboo Bear Plush',
+      image: 'https://images.unsplash.com/photo-1559454403-b8fb88521f11?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 24.99,
-      description: 'A fluffy panda plush with a little bamboo snack. Loves cuddles and naps!'
+      description: 'A soft panda plush toy with a little bamboo snack. Perfect for cuddles!'
     },
     {
       id: 2,
-      name: 'Panda Cub',
-      image: 'https://images.unsplash.com/photo-1597953601374-1ff2d5640c85?w=400&h=400&fit=crop&crop=entropy&auto=format',
+      name: 'Cuddle Cub Toy',
+      image: 'https://images.unsplash.com/photo-1585110396000-c9ffd4e4b308?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 18.50,
-      description: 'Soft as a cloud, with big round eyes and a tiny black nose.'
+      description: 'Soft plush cub toy with big round eyes and a tiny black nose.'
     },
     {
       id: 3,
-      name: 'Mochi Panda',
-      image: 'https://images.unsplash.com/photo-1527118732049-c88155f2107c?w=400&h=400&fit=crop&crop=entropy&auto=format',
+      name: 'Mochi Panda Plushie',
+      image: 'https://images.unsplash.com/photo-1573865526739-10659fec78a5?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 22.00,
-      description: 'Squishy round panda, purrs when you press its tummy.'
+      description: 'Squishy round plush panda toy — squeezes into a happy smile.'
     },
     {
       id: 4,
-      name: 'Doodle Dog',
+      name: 'Doodle Dog Toy',
       image: 'https://images.unsplash.com/photo-1583337130417-3346a1be7dee?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 27.25,
-      description: 'Loyal puppy with floppy ears and a waggly tail. A classic best friend.'
+      description: 'Loyal plush puppy toy with floppy ears and a waggly tail.'
     },
     {
       id: 5,
-      name: 'Pip the Penguin',
+      name: 'Pip the Penguin Plush',
       image: 'https://images.unsplash.com/photo-1517783999520-f068d7431a60?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 19.99,
-      description: 'Waddles into your heart. Ice-cold but super cuddly.'
+      description: 'Waddles into your heart. Soft penguin plush toy for all ages.'
     },
     {
       id: 6,
-      name: 'Luna Fox',
+      name: 'Luna Fox Plushie',
       image: 'https://images.unsplash.com/photo-1607920591413-4ec007e70023?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 23.75,
-      description: 'Clever little fox with a bushy tail and a sweet smile.'
+      description: 'Clever little plush fox toy with a bushy tail and a sweet smile.'
     },
     {
       id: 7,
-      name: 'Ellie Elephant',
+      name: 'Ellie Elephant Toy',
       image: 'https://images.unsplash.com/photo-1557050543-4d5f4e07ef46?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 29.99,
-      description: 'Gentle giant with velvety ears and a trunk full of love.'
+      description: 'Gentle giant plush elephant toy with velvety ears and a soft trunk.'
     },
     {
       id: 8,
-      name: 'Panda Puff',
+      name: 'Panda Puff Plush',
       image: 'https://images.unsplash.com/photo-1564349683136-77e08dba1ef7?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 26.50,
-      description: 'Rolls around, munches bamboo, and gives the best hugs.'
+      description: 'Rolls around, munches bamboo, and gives the best plush hugs.'
     },
     {
       id: 9,
-      name: 'Rainbow Unicorn',
+      name: 'Rainbow Unicorn Toy',
       image: 'https://images.unsplash.com/photo-1591886960571-74d43a9d4166?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 32.00,
-      description: 'Magical unicorn with a sparkly horn and rainbow mane.'
+      description: 'Magical plush unicorn toy with a sparkly horn and rainbow mane.'
     },
     {
       id: 10,
-      name: 'Turtle Tim',
+      name: 'Turtle Tim Plush',
       image: 'https://images.unsplash.com/photo-1437622368342-7a3d73a34c8f?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 16.75,
-      description: 'Slow and steady, this little turtle is always ready for a hug.'
+      description: 'Slow and steady plush turtle toy — always ready for a hug.'
     },
     {
       id: 11,
-      name: 'Owliver',
+      name: 'Owliver Plush Toy',
       image: 'https://images.unsplash.com/photo-1543549790-8b5f4a028cfb?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 21.50,
-      description: 'Wise little owl with big bright eyes and fluffy wings.'
+      description: 'Wise little plush owl toy with big bright eyes and fluffy wings.'
     },
     {
       id: 12,
-      name: 'Sheepy Dreams',
+      name: 'Sheepy Dreams Toy',
       image: 'https://images.unsplash.com/photo-1484557985045-edf25e08da73?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 25.00,
-      description: 'Counting sheep has never been this cute. Super soft and sleepy.'
+      description: 'Counting sheep has never been this cute. Super soft plush toy.'
     },
     {
       id: 13,
-      name: 'Dino Roar',
+      name: 'Dino Roar Figure',
       image: 'https://images.unsplash.com/photo-1589656966895-2f33e7653819?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 28.99,
-      description: 'Friendly T-Rex with a big smile and even bigger hugs.'
+      description: 'Friendly T-Rex plush toy with a big smile and even bigger hugs.'
     },
     {
       id: 14,
-      name: 'Koala Cuddle',
+      name: 'Koala Cuddle Toy',
       image: 'https://images.unsplash.com/photo-1579568953896-16e6c0c30a6b?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 20.25,
-      description: 'Sleepy koala who loves to cling and cuddle all day long.'
+      description: 'Sleepy plush koala toy who loves to cling and cuddle all day.'
     },
     {
       id: 15,
-      name: 'Froggy Friend',
+      name: 'Froggy Friend Plush',
       image: 'https://images.unsplash.com/photo-1559253664-ca249d4d5b5e?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 17.50,
-      description: 'Hopping happy frog with a wide grin and soft green fur.'
+      description: 'Hopping happy plush frog toy with a wide grin and soft green fur.'
     },
     {
       id: 16,
-      name: 'Polar Bear Pal',
+      name: 'Polar Bear Plush',
       image: 'https://images.unsplash.com/photo-1589656966895-2f33e7653819?w=400&h=400&fit=crop&crop=entropy&auto=format',
       price: 31.00,
-      description: 'Snowy white bear from the north, ready for warm cuddles.'
+      description: 'Snowy white plush bear toy from the north, ready for warm cuddles.'
     }
   ];
 
@@ -817,7 +817,7 @@
         <div class="cart-empty">
           <i class="fas fa-shopping-basket"></i>
           <p>Your cart is empty</p>
-          <p style="font-size:0.9rem; margin-top:0.5rem;">Add some cuddly friends!</p>
+          <p style="font-size:0.9rem; margin-top:0.5rem;">Add some cuddly toys!</p>
         </div>
       `;
       cartFooter.style.display = 'none';
